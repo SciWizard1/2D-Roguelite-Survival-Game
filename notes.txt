@@ -1,3 +1,6 @@
+// More information will be provided in the very near future.
+
+==== Survival Ark ====
 Surface:
 
     Enemies:
@@ -6,7 +9,15 @@ Surface:
     Food:
         Berries, various crops, livestock.
 
+=== Metallurgy Ark ===
 
+=== Technology Ark ===
+
+== Metaphysical Ark ==
+
+
+// This simply highlights the internal architecture that is planned.
+// However, in its current state, it does not depict any significant information.
 Technical Details:
 
 main() {
