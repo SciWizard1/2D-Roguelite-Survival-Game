@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/timer.dir/link.d CMakeFiles/timer.dir/tests/timer.c.o -o timer  libminifb.a -lX11 -lGL

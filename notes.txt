@@ -1,0 +1,15 @@
+Surface:
+
+    Enemies:
+        Bears, wolves, 
+
+    Food:
+        Berries, various crops, livestock.
+
+
+Technical Details:
+
+main() {
+    render();
+    
+}

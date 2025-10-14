@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/anelson/Documents/Projects/SurvivalRoguelike/build/cmake_install.cmake",
+		"/home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

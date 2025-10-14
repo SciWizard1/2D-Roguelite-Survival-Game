@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/fullscreen.dir/link.d CMakeFiles/fullscreen.dir/tests/fullscreen.c.o -o fullscreen  libminifb.a -lX11 -lGL

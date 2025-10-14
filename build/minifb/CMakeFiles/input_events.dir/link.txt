@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/input_events.dir/link.d CMakeFiles/input_events.dir/tests/input_events.c.o -o input_events  libminifb.a -lX11 -lGL
