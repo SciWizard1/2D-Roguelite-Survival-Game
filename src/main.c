@@ -1,13 +1,12 @@
 #include "game.h"
 
-
-
-
 int main() {
     int error_code = 0;
 
     // Open a window
     window = mfb_open_ex("The Wonderous Deathly Valley", next_framebuffer_size_x, next_framebuffer_size_y, WF_RESIZABLE);
+
+    mfb_set_target_fps(60);
 
     // Initialize callbacks
     mfb_set_resize_callback(window, update_size);
@@ -15,7 +14,6 @@ int main() {
     // Setup controls
     const uint8_t *mouse = mfb_get_mouse_button_buffer(window);
     const uint8_t *keys  = mfb_get_key_buffer(window);
-
 
     // Initialize Chunk Pool
     new_chunk_array_size = 16;
@@ -47,17 +45,17 @@ int main() {
             //}
         }
         
-        camera_position_x -= keys[KB_KEY_A];
-        camera_position_x += keys[KB_KEY_D];
-        camera_position_y -= keys[KB_KEY_W];
-        camera_position_y += keys[KB_KEY_S];
+        camera_position_x -= 4*keys[KB_KEY_A];
+        camera_position_x += 4*keys[KB_KEY_D];
+        camera_position_y -= 4*keys[KB_KEY_W];
+        camera_position_y += 4*keys[KB_KEY_S];
 
         if (mouse[MOUSE_LEFT]) {
             int32_t mouse_x = mfb_get_mouse_x(window);
             int32_t mouse_y = mfb_get_mouse_y(window);
 
-            int32_t mouse_tile_x = ((mouse_x * framebuffer_size_x) / actual_window_size_x + camera_position_x) / TILE_SIZE;
-            int32_t mouse_tile_y = ((mouse_y * framebuffer_size_y) / actual_window_size_y + camera_position_y) / TILE_SIZE;
+            int32_t mouse_tile_x = FLOOR_DIV(((mouse_x * (int32_t)framebuffer_size_x) / (int32_t)actual_window_size_x + camera_position_x), TILE_SIZE);
+            int32_t mouse_tile_y = FLOOR_DIV(((mouse_y * (int32_t)framebuffer_size_y) / (int32_t)actual_window_size_y + camera_position_y), TILE_SIZE);
 
             set_tile(mouse_tile_x, mouse_tile_y, camera_position_z, 1);
         }

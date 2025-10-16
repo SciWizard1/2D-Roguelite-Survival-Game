@@ -18,12 +18,14 @@
 // Utilities
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
 #define MAX(a,b) (((a) > (b)) ? (a) : (b))
+#define FLOOR_DIV(a,b) ((a >= 0) ? (a / b) : ((a - b + 1) / b))
 
 // For finding what chunks to load.
-#define viewport_start_chunk_x (camera_position_x / (TILE_SIZE * CHUNK_SIZE))
-#define viewport_end_chunk_x ((camera_position_x + (int32_t)framebuffer_size_x) / (TILE_SIZE * CHUNK_SIZE))
-#define viewport_start_chunk_y (camera_position_y / (TILE_SIZE * CHUNK_SIZE))
-#define viewport_end_chunk_y ((camera_position_y + (int32_t)framebuffer_size_y) / (TILE_SIZE * CHUNK_SIZE))
+
+#define viewport_start_chunk_x ((camera_position_x >= 0) ? (camera_position_x / (TILE_SIZE * CHUNK_SIZE)) : ((camera_position_x - (TILE_SIZE * CHUNK_SIZE) + 1) / (TILE_SIZE * CHUNK_SIZE)))
+#define viewport_end_chunk_x (((camera_position_x + (int32_t)framebuffer_size_x) >= 0) ? ((camera_position_x + (int32_t)framebuffer_size_x) / (TILE_SIZE * CHUNK_SIZE)) : (((camera_position_x + (int32_t)framebuffer_size_x) - (TILE_SIZE * CHUNK_SIZE) + 1) / (TILE_SIZE * CHUNK_SIZE)))
+#define viewport_start_chunk_y ((camera_position_y >= 0) ? (camera_position_y / (TILE_SIZE * CHUNK_SIZE)) : ((camera_position_y - (TILE_SIZE * CHUNK_SIZE) + 1) / (TILE_SIZE * CHUNK_SIZE)))
+#define viewport_end_chunk_y (((camera_position_x + (int32_t)framebuffer_size_x) >= 0) ? ((camera_position_x + (int32_t)framebuffer_size_x) / (TILE_SIZE * CHUNK_SIZE)) : (((camera_position_x + (int32_t)framebuffer_size_x) - (TILE_SIZE * CHUNK_SIZE) + 1) / (TILE_SIZE * CHUNK_SIZE)))
 #define viewport_start_chunk_z (camera_position_z)
 #define viewport_end_chunk_z (camera_position_z + 1)
 

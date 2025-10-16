@@ -68,21 +68,35 @@ int generate_chunk(int32_t x, int32_t y, int32_t z) {
     uint16_t *chunk = &chunk_array[chunk_array_index * CHUNK_SIZE * CHUNK_SIZE];
 
     // Generate the chunk.
-    for (uint16_t y = 0; y < CHUNK_SIZE; y++) {
-        for (uint16_t x = 0; x < CHUNK_SIZE; x++) {
-            chunk[y * CHUNK_SIZE + x] = ( (x - 128) * (x - 128) + (y - 128) * (y - 128) ) < 64 * 64;
+    if (x == 1 && y == 1) {
+        for (uint16_t ty = 0; ty < CHUNK_SIZE; ty++) {
+            for (uint16_t tx = 0; tx < CHUNK_SIZE; tx++) {
+                chunk[ty * CHUNK_SIZE + tx] = ( (tx - 128) * (tx - 128) + (ty - 128) * (ty - 128) ) < 64 * 64;
+            }
+        }
+    } else {
+        for (uint16_t ty = 0; ty < CHUNK_SIZE; ty++) {
+            for (uint16_t tx = 0; tx < CHUNK_SIZE; tx++) {
+                chunk[ty * CHUNK_SIZE + tx] = ((tx == 0) || (ty == 0));
+            }
         }
     }
 
     // Resize the grid to accommodate the new chunk.
-    new_grid_x = MIN(grid_x, x); new_grid_y = MIN(grid_y, y); new_grid_z = MIN(grid_z, z);
-    if (x >= new_grid_x + grid_w) {new_grid_w = x - grid_x + 1;}
-    if (y >= new_grid_y + grid_l) {new_grid_l = y - grid_y + 1;}
-    if (z >= new_grid_z + grid_h) {new_grid_h = z - grid_z + 1;}
+    new_grid_x = MIN(grid_x, x);
+    new_grid_y = MIN(grid_y, y);
+    new_grid_z = MIN(grid_z, z);
+
+    new_grid_w = MAX(grid_x + grid_w - 1, x) - new_grid_x + 1;
+    new_grid_l = MAX(grid_y + grid_l - 1, y) - new_grid_y + 1;
+    new_grid_h = MAX(grid_z + grid_h - 1, z) - new_grid_z + 1;
     
     resize_spatial_access_grid();
 
     set_chunk(x, y, z, chunk_array_index);
+    chunk_position_x[chunk_array_index] = x;
+    chunk_position_y[chunk_array_index] = y;
+    chunk_position_z[chunk_array_index] = z;
 
     chunk_flags[chunk_array_index] = FULL;
 
@@ -108,8 +122,8 @@ int load_nearby_chunks() {
         */
 
     // Generate chunks. TODO: Implement chunk loading from the disk.
-    for (int32_t y = viewport_start_chunk_y; y < viewport_end_chunk_y; y++) {
-        for (int32_t x = viewport_start_chunk_x; x < viewport_end_chunk_x; x++) {
+    for (int32_t y = viewport_start_chunk_y; y <= viewport_end_chunk_y; y++) {
+        for (int32_t x = viewport_start_chunk_x; x <= viewport_end_chunk_x; x++) {
             // Ensure chunks aren't simply regenerated every frame.
             uint32_t chunk_index = get_chunk(x, y, camera_position_z);
             if (chunk_index != NULL_CHUNK) {
@@ -123,6 +137,13 @@ int load_nearby_chunks() {
             } else {
                 printf("Successfully loaded chunk (%d, %d, %d)!\n", x, y, camera_position_z);
             }
+
+                    // Probe for testing free chunks.
+
+            for (uint32_t i = 0; i < chunk_array_size; i++) {
+                printf("Chunk %d status: %d, ", i, chunk_flags[i]);
+            }
+            printf("\n");
         }
     }
 
@@ -206,7 +227,7 @@ int resize_spatial_access_grid() {
 }
 
 uint32_t get_chunk(int32_t x, int32_t y, int32_t z) {
-    if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
+    if (x < grid_x || x >= grid_x + grid_w || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
         return NULL_CHUNK;
     }
 
@@ -217,24 +238,30 @@ uint32_t get_chunk(int32_t x, int32_t y, int32_t z) {
 }
 
 void set_chunk(int32_t x, int32_t y, int32_t z, uint32_t index) {
-    if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
-        return;
-    }
+    //if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
+    //    printf("Failed to set chunk (%d, %d, %d)!\n", x, y, z);
+    //    return;
+    //}
     int32_t flat_access_index = (x - grid_x) + (y - grid_y) * grid_w + (z - grid_z) * grid_w * grid_l;
     
     spatial_access_grid[flat_access_index] = index;
 }
 
 int set_tile(int32_t x, int32_t y, int32_t z, uint16_t tile_id) {
-    int32_t cx = x / CHUNK_SIZE;
-    int32_t cy = y / CHUNK_SIZE;
+    int32_t cx = FLOOR_DIV(x, CHUNK_SIZE);
+    int32_t cy = FLOOR_DIV(y, CHUNK_SIZE);
 
     uint32_t chunk_index = get_chunk(cx, cy, z);
+    
 
     if (chunk_index == NULL_CHUNK) {
         // Chunk is not loaded.
         return -1;
     }
+
+    printf("Tile Pos: (%d, %d, %d)\n", x, y, z);
+    printf("Local tile pos: (%d, %d, %d)\n", (x & CHUNK_MASK), (y & CHUNK_MASK), (z & CHUNK_MASK));
+    printf("Chunk Pos: (%d, %d, %d) Chunk index: %X\n", cx, cy, z, chunk_index);
 
     chunk_array[
         chunk_index * CHUNK_SIZE * CHUNK_SIZE + 
@@ -242,6 +269,11 @@ int set_tile(int32_t x, int32_t y, int32_t z, uint16_t tile_id) {
         (y & CHUNK_MASK) * CHUNK_SIZE +
         (z & CHUNK_MASK) * CHUNK_SIZE * CHUNK_SIZE
     ] = tile_id;
+
+    printf("Modified chunk array index %d\n", chunk_index * CHUNK_SIZE * CHUNK_SIZE + 
+        (x & CHUNK_MASK) +
+        (y & CHUNK_MASK) * CHUNK_SIZE +
+        (z & CHUNK_MASK) * CHUNK_SIZE * CHUNK_SIZE);
 
     return 0;
 }

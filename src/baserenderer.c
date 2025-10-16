@@ -80,7 +80,7 @@ void draw_chunk(int32_t cx, int32_t cy) {
     if (chunk_index == NULL_CHUNK) {
         return;
     }
-    uint16_t *chunk = &chunk_array[chunk_index];
+    uint16_t *chunk = &chunk_array[chunk_index * CHUNK_SIZE * CHUNK_SIZE];
 
     // Convert chunk position to screen space
     int32_t chunk_screen_x = cx * CHUNK_SIZE * TILE_SIZE - camera_position_x;
@@ -108,8 +108,8 @@ void draw_chunk(int32_t cx, int32_t cy) {
 
             uint16_t tile_id = chunk[tile_y * CHUNK_SIZE + tile_x];
 
-            int32_t pixel_offset_x = cpx % TILE_SIZE;
-            int32_t pixel_offset_y = cpy % TILE_SIZE;
+            int32_t pixel_offset_x = cpx & TILE_MASK;
+            int32_t pixel_offset_y = cpy & TILE_MASK;
 
             framebuffer[sx + sy * framebuffer_size_x] =
                 textures[
