@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include
+C_INCLUDES = -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include"
 
 C_FLAGS = -std=gnu99 -Wall -Wextra -Wpedantic -O3
 

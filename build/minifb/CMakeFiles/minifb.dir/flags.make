@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = -DUSE_OPENGL_API
 
-C_INCLUDES = -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src
+C_INCLUDES = -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include" -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src"
 
 C_FLAGS = -std=gnu99 -O2 -Wall -Wextra -Wno-switch -Wno-unused-function -Wno-unused-parameter -Wno-implicit-fallthrough -Wno-cast-function-type
 
 CXX_DEFINES = -DUSE_OPENGL_API
 
-CXX_INCLUDES = -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src
+CXX_INCLUDES = -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include" -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src"
 
 CXX_FLAGS = -std=c++11 -O2 -Wall -Wextra -Wno-switch -Wno-unused-function -Wno-unused-parameter -Wno-implicit-fallthrough -Wno-cast-function-type
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/noise.c" "minifb/CMakeFiles/noise.dir/tests/noise.c.o" "gcc" "minifb/CMakeFiles/noise.dir/tests/noise.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/noise.c" "minifb/CMakeFiles/noise.dir/tests/noise.c.o" "gcc" "minifb/CMakeFiles/noise.dir/tests/noise.c.o.d"
   "" "minifb/noise" "gcc" "minifb/CMakeFiles/noise.dir/link.d"
   )
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/input_events.c" "minifb/CMakeFiles/input_events.dir/tests/input_events.c.o" "gcc" "minifb/CMakeFiles/input_events.dir/tests/input_events.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/input_events.c" "minifb/CMakeFiles/input_events.dir/tests/input_events.c.o" "gcc" "minifb/CMakeFiles/input_events.dir/tests/input_events.c.o.d"
   "" "minifb/input_events" "gcc" "minifb/CMakeFiles/input_events.dir/link.d"
   )
 

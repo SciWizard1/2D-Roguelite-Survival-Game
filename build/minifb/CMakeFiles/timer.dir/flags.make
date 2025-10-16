@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DUSE_OPENGL_API
 
-C_INCLUDES = -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include
+C_INCLUDES = -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include"
 
 C_FLAGS = -std=gnu99 -O2 -Wall -Wextra -Wno-switch -Wno-unused-function -Wno-unused-parameter -Wno-implicit-fallthrough -Wno-cast-function-type
 

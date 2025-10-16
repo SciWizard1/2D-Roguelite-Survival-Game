@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike
+CMAKE_SOURCE_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike/build
+CMAKE_BINARY_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -128,14 +128,14 @@ minifb/clean: minifb/CMakeFiles/timer.dir/clean
 CMakeFiles/game.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=3,4,5,6 "Built target game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=3,4,5,6 "Built target game"
 .PHONY : CMakeFiles/game.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/game.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/game.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : CMakeFiles/game.dir/rule
 
 # Convenience name for target.
@@ -145,7 +145,7 @@ game: CMakeFiles/game.dir/rule
 # codegen rule for target.
 CMakeFiles/game.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=3,4,5,6 "Finished codegen for target game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=3,4,5,6 "Finished codegen for target game"
 .PHONY : CMakeFiles/game.dir/codegen
 
 # clean rule for target.
@@ -160,14 +160,14 @@ CMakeFiles/game.dir/clean:
 minifb/CMakeFiles/minifb.dir/all:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20 "Built target minifb"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=13,14,15,16,17,18,19,20 "Built target minifb"
 .PHONY : minifb/CMakeFiles/minifb.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/minifb.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/minifb.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/minifb.dir/rule
 
 # Convenience name for target.
@@ -177,7 +177,7 @@ minifb: minifb/CMakeFiles/minifb.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/minifb.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20 "Finished codegen for target minifb"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=13,14,15,16,17,18,19,20 "Finished codegen for target minifb"
 .PHONY : minifb/CMakeFiles/minifb.dir/codegen
 
 # clean rule for target.
@@ -192,14 +192,14 @@ minifb/CMakeFiles/minifb.dir/clean:
 minifb/CMakeFiles/noise.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=23,24 "Built target noise"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=23,24 "Built target noise"
 .PHONY : minifb/CMakeFiles/noise.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/noise.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/noise.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/noise.dir/rule
 
 # Convenience name for target.
@@ -209,7 +209,7 @@ noise: minifb/CMakeFiles/noise.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/noise.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=23,24 "Finished codegen for target noise"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=23,24 "Finished codegen for target noise"
 .PHONY : minifb/CMakeFiles/noise.dir/codegen
 
 # clean rule for target.
@@ -224,14 +224,14 @@ minifb/CMakeFiles/noise.dir/clean:
 minifb/CMakeFiles/input_events.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=9,10 "Built target input_events"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=9,10 "Built target input_events"
 .PHONY : minifb/CMakeFiles/input_events.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/input_events.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/input_events.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/input_events.dir/rule
 
 # Convenience name for target.
@@ -241,7 +241,7 @@ input_events: minifb/CMakeFiles/input_events.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/input_events.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=9,10 "Finished codegen for target input_events"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=9,10 "Finished codegen for target input_events"
 .PHONY : minifb/CMakeFiles/input_events.dir/codegen
 
 # clean rule for target.
@@ -256,14 +256,14 @@ minifb/CMakeFiles/input_events.dir/clean:
 minifb/CMakeFiles/input_events_cpp.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=11,12 "Built target input_events_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=11,12 "Built target input_events_cpp"
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/input_events_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/input_events_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/rule
 
 # Convenience name for target.
@@ -273,7 +273,7 @@ input_events_cpp: minifb/CMakeFiles/input_events_cpp.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/input_events_cpp.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=11,12 "Finished codegen for target input_events_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=11,12 "Finished codegen for target input_events_cpp"
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/codegen
 
 # clean rule for target.
@@ -288,14 +288,14 @@ minifb/CMakeFiles/input_events_cpp.dir/clean:
 minifb/CMakeFiles/multiple_windows.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=21,22 "Built target multiple_windows"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=21,22 "Built target multiple_windows"
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/multiple_windows.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/multiple_windows.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/rule
 
 # Convenience name for target.
@@ -305,7 +305,7 @@ multiple_windows: minifb/CMakeFiles/multiple_windows.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/multiple_windows.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=21,22 "Finished codegen for target multiple_windows"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=21,22 "Finished codegen for target multiple_windows"
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/codegen
 
 # clean rule for target.
@@ -320,14 +320,14 @@ minifb/CMakeFiles/multiple_windows.dir/clean:
 minifb/CMakeFiles/hidpi.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=7,8 "Built target hidpi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=7,8 "Built target hidpi"
 .PHONY : minifb/CMakeFiles/hidpi.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/hidpi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/hidpi.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/hidpi.dir/rule
 
 # Convenience name for target.
@@ -337,7 +337,7 @@ hidpi: minifb/CMakeFiles/hidpi.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/hidpi.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=7,8 "Finished codegen for target hidpi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=7,8 "Finished codegen for target hidpi"
 .PHONY : minifb/CMakeFiles/hidpi.dir/codegen
 
 # clean rule for target.
@@ -352,14 +352,14 @@ minifb/CMakeFiles/hidpi.dir/clean:
 minifb/CMakeFiles/fullscreen.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=1,2 "Built target fullscreen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=1,2 "Built target fullscreen"
 .PHONY : minifb/CMakeFiles/fullscreen.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/fullscreen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/fullscreen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/fullscreen.dir/rule
 
 # Convenience name for target.
@@ -369,7 +369,7 @@ fullscreen: minifb/CMakeFiles/fullscreen.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/fullscreen.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=1,2 "Finished codegen for target fullscreen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=1,2 "Finished codegen for target fullscreen"
 .PHONY : minifb/CMakeFiles/fullscreen.dir/codegen
 
 # clean rule for target.
@@ -384,14 +384,14 @@ minifb/CMakeFiles/fullscreen.dir/clean:
 minifb/CMakeFiles/timer.dir/all: minifb/CMakeFiles/minifb.dir/all
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/depend
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=25,26 "Built target timer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=25,26 "Built target timer"
 .PHONY : minifb/CMakeFiles/timer.dir/all
 
 # Build rule for subdir invocation for target.
 minifb/CMakeFiles/timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/timer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : minifb/CMakeFiles/timer.dir/rule
 
 # Convenience name for target.
@@ -401,7 +401,7 @@ timer: minifb/CMakeFiles/timer.dir/rule
 # codegen rule for target.
 minifb/CMakeFiles/timer.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=25,26 "Finished codegen for target timer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=25,26 "Finished codegen for target timer"
 .PHONY : minifb/CMakeFiles/timer.dir/codegen
 
 # clean rule for target.

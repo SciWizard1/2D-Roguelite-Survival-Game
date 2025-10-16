@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/hidpi.c" "minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.o" "gcc" "minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/hidpi.c" "minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.o" "gcc" "minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.o.d"
   "" "minifb/hidpi" "gcc" "minifb/CMakeFiles/hidpi.dir/link.d"
   )
 

@@ -1,7 +1,7 @@
 CMakeFiles/game.dir/src/chunks.c.o: \
- /home/anelson/Documents/Projects/SurvivalRoguelike/src/chunks.c \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/chunks.c \
  /usr/include/stdc-predef.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/src/game.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/game.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
@@ -38,6 +38,6 @@ CMakeFiles/game.dir/src/chunks.c.o: \
  /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
  /usr/include/string.h /usr/include/bits/types/locale_t.h \
  /usr/include/bits/types/__locale_t.h /usr/include/strings.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_enums.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB_enums.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h

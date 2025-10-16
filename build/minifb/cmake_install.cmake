@@ -1,4 +1,4 @@
-# Install script for directory: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb
+# Install script for directory: /home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,15 +43,15 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/libminifb.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/libminifb.a")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB.h"
-    "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_cpp.h"
-    "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_enums.h"
-    "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_ios.h"
+    "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include/MiniFB.h"
+    "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include/MiniFB_cpp.h"
+    "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include/MiniFB_enums.h"
+    "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include/MiniFB_ios.h"
     )
 endif()
 
@@ -59,7 +59,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb/minifb-config.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb/minifb-config.cmake"
-         "/home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/CMakeFiles/Export/35f209a31e19d7059635a70a8dfb542f/minifb-config.cmake")
+         "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/CMakeFiles/Export/35f209a31e19d7059635a70a8dfb542f/minifb-config.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb/minifb-config-*.cmake")
       if(_cmake_old_config_files)
@@ -72,15 +72,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb" TYPE FILE FILES "/home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/CMakeFiles/Export/35f209a31e19d7059635a70a8dfb542f/minifb-config.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb" TYPE FILE FILES "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/CMakeFiles/Export/35f209a31e19d7059635a70a8dfb542f/minifb-config.cmake")
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb" TYPE FILE FILES "/home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/CMakeFiles/Export/35f209a31e19d7059635a70a8dfb542f/minifb-config-release.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/minifb" TYPE FILE FILES "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/CMakeFiles/Export/35f209a31e19d7059635a70a8dfb542f/minifb-config-release.cmake")
   endif()
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/install_local_manifest.txt"
+  file(WRITE "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

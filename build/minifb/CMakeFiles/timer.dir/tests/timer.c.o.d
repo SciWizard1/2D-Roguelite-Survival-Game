@@ -1,8 +1,8 @@
 minifb/CMakeFiles/timer.dir/tests/timer.c.o: \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/timer.c \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/tests/timer.c \
  /usr/include/stdc-predef.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_enums.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB_enums.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

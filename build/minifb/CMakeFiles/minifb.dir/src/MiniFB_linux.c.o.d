@@ -1,5 +1,5 @@
 minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o: \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_linux.c \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_linux.c \
  /usr/include/stdc-predef.h /usr/include/time.h /usr/include/features.h \
  /usr/include/features-time64.h /usr/include/bits/wordsize.h \
  /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
@@ -15,8 +15,8 @@ minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o: \
  /usr/include/bits/types/timer_t.h \
  /usr/include/bits/types/struct_itimerspec.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_enums.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB_enums.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
  /usr/include/bits/wchar.h /usr/include/bits/stdint-intn.h \

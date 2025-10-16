@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike
+CMAKE_SOURCE_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike/build
+CMAKE_BINARY_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb//CMakeFiles/progress.marks
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles 0
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb//CMakeFiles/progress.marks"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/clean
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/preinstall
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/preinstall
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 minifb/CMakeFiles/minifb.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/minifb.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/minifb.dir/rule
 .PHONY : minifb/CMakeFiles/minifb.dir/rule
 
 # Convenience name for target.
@@ -172,12 +172,12 @@ minifb: minifb/CMakeFiles/minifb.dir/rule
 
 # fast build rule for target.
 minifb/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/build
 .PHONY : minifb/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/noise.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/noise.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/noise.dir/rule
 .PHONY : minifb/CMakeFiles/noise.dir/rule
 
 # Convenience name for target.
@@ -186,12 +186,12 @@ noise: minifb/CMakeFiles/noise.dir/rule
 
 # fast build rule for target.
 noise/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/build
 .PHONY : noise/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/input_events.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/input_events.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/input_events.dir/rule
 .PHONY : minifb/CMakeFiles/input_events.dir/rule
 
 # Convenience name for target.
@@ -200,12 +200,12 @@ input_events: minifb/CMakeFiles/input_events.dir/rule
 
 # fast build rule for target.
 input_events/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/build
 .PHONY : input_events/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/input_events_cpp.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/input_events_cpp.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/input_events_cpp.dir/rule
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/rule
 
 # Convenience name for target.
@@ -214,12 +214,12 @@ input_events_cpp: minifb/CMakeFiles/input_events_cpp.dir/rule
 
 # fast build rule for target.
 input_events_cpp/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/build
 .PHONY : input_events_cpp/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/multiple_windows.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/multiple_windows.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/multiple_windows.dir/rule
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/rule
 
 # Convenience name for target.
@@ -228,12 +228,12 @@ multiple_windows: minifb/CMakeFiles/multiple_windows.dir/rule
 
 # fast build rule for target.
 multiple_windows/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/build
 .PHONY : multiple_windows/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/hidpi.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/hidpi.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/hidpi.dir/rule
 .PHONY : minifb/CMakeFiles/hidpi.dir/rule
 
 # Convenience name for target.
@@ -242,12 +242,12 @@ hidpi: minifb/CMakeFiles/hidpi.dir/rule
 
 # fast build rule for target.
 hidpi/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/build
 .PHONY : hidpi/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/fullscreen.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/fullscreen.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/fullscreen.dir/rule
 .PHONY : minifb/CMakeFiles/fullscreen.dir/rule
 
 # Convenience name for target.
@@ -256,12 +256,12 @@ fullscreen: minifb/CMakeFiles/fullscreen.dir/rule
 
 # fast build rule for target.
 fullscreen/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/build
 .PHONY : fullscreen/fast
 
 # Convenience name for target.
 minifb/CMakeFiles/timer.dir/rule:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/timer.dir/rule
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minifb/CMakeFiles/timer.dir/rule
 .PHONY : minifb/CMakeFiles/timer.dir/rule
 
 # Convenience name for target.
@@ -270,7 +270,7 @@ timer: minifb/CMakeFiles/timer.dir/rule
 
 # fast build rule for target.
 timer/fast:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/build
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/build
 .PHONY : timer/fast
 
 src/MiniFB_common.o: src/MiniFB_common.c.o
@@ -278,7 +278,7 @@ src/MiniFB_common.o: src/MiniFB_common.c.o
 
 # target to build an object file
 src/MiniFB_common.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o
 .PHONY : src/MiniFB_common.c.o
 
 src/MiniFB_common.i: src/MiniFB_common.c.i
@@ -286,7 +286,7 @@ src/MiniFB_common.i: src/MiniFB_common.c.i
 
 # target to preprocess a source file
 src/MiniFB_common.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.i
 .PHONY : src/MiniFB_common.c.i
 
 src/MiniFB_common.s: src/MiniFB_common.c.s
@@ -294,7 +294,7 @@ src/MiniFB_common.s: src/MiniFB_common.c.s
 
 # target to generate assembly for a file
 src/MiniFB_common.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.s
 .PHONY : src/MiniFB_common.c.s
 
 src/MiniFB_cpp.o: src/MiniFB_cpp.cpp.o
@@ -302,7 +302,7 @@ src/MiniFB_cpp.o: src/MiniFB_cpp.cpp.o
 
 # target to build an object file
 src/MiniFB_cpp.cpp.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o
 .PHONY : src/MiniFB_cpp.cpp.o
 
 src/MiniFB_cpp.i: src/MiniFB_cpp.cpp.i
@@ -310,7 +310,7 @@ src/MiniFB_cpp.i: src/MiniFB_cpp.cpp.i
 
 # target to preprocess a source file
 src/MiniFB_cpp.cpp.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.i
 .PHONY : src/MiniFB_cpp.cpp.i
 
 src/MiniFB_cpp.s: src/MiniFB_cpp.cpp.s
@@ -318,7 +318,7 @@ src/MiniFB_cpp.s: src/MiniFB_cpp.cpp.s
 
 # target to generate assembly for a file
 src/MiniFB_cpp.cpp.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.s
 .PHONY : src/MiniFB_cpp.cpp.s
 
 src/MiniFB_internal.o: src/MiniFB_internal.c.o
@@ -326,7 +326,7 @@ src/MiniFB_internal.o: src/MiniFB_internal.c.o
 
 # target to build an object file
 src/MiniFB_internal.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o
 .PHONY : src/MiniFB_internal.c.o
 
 src/MiniFB_internal.i: src/MiniFB_internal.c.i
@@ -334,7 +334,7 @@ src/MiniFB_internal.i: src/MiniFB_internal.c.i
 
 # target to preprocess a source file
 src/MiniFB_internal.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.i
 .PHONY : src/MiniFB_internal.c.i
 
 src/MiniFB_internal.s: src/MiniFB_internal.c.s
@@ -342,7 +342,7 @@ src/MiniFB_internal.s: src/MiniFB_internal.c.s
 
 # target to generate assembly for a file
 src/MiniFB_internal.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.s
 .PHONY : src/MiniFB_internal.c.s
 
 src/MiniFB_linux.o: src/MiniFB_linux.c.o
@@ -350,7 +350,7 @@ src/MiniFB_linux.o: src/MiniFB_linux.c.o
 
 # target to build an object file
 src/MiniFB_linux.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o
 .PHONY : src/MiniFB_linux.c.o
 
 src/MiniFB_linux.i: src/MiniFB_linux.c.i
@@ -358,7 +358,7 @@ src/MiniFB_linux.i: src/MiniFB_linux.c.i
 
 # target to preprocess a source file
 src/MiniFB_linux.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.i
 .PHONY : src/MiniFB_linux.c.i
 
 src/MiniFB_linux.s: src/MiniFB_linux.c.s
@@ -366,7 +366,7 @@ src/MiniFB_linux.s: src/MiniFB_linux.c.s
 
 # target to generate assembly for a file
 src/MiniFB_linux.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.s
 .PHONY : src/MiniFB_linux.c.s
 
 src/MiniFB_timer.o: src/MiniFB_timer.c.o
@@ -374,7 +374,7 @@ src/MiniFB_timer.o: src/MiniFB_timer.c.o
 
 # target to build an object file
 src/MiniFB_timer.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o
 .PHONY : src/MiniFB_timer.c.o
 
 src/MiniFB_timer.i: src/MiniFB_timer.c.i
@@ -382,7 +382,7 @@ src/MiniFB_timer.i: src/MiniFB_timer.c.i
 
 # target to preprocess a source file
 src/MiniFB_timer.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.i
 .PHONY : src/MiniFB_timer.c.i
 
 src/MiniFB_timer.s: src/MiniFB_timer.c.s
@@ -390,7 +390,7 @@ src/MiniFB_timer.s: src/MiniFB_timer.c.s
 
 # target to generate assembly for a file
 src/MiniFB_timer.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.s
 .PHONY : src/MiniFB_timer.c.s
 
 src/gl/MiniFB_GL.o: src/gl/MiniFB_GL.c.o
@@ -398,7 +398,7 @@ src/gl/MiniFB_GL.o: src/gl/MiniFB_GL.c.o
 
 # target to build an object file
 src/gl/MiniFB_GL.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o
 .PHONY : src/gl/MiniFB_GL.c.o
 
 src/gl/MiniFB_GL.i: src/gl/MiniFB_GL.c.i
@@ -406,7 +406,7 @@ src/gl/MiniFB_GL.i: src/gl/MiniFB_GL.c.i
 
 # target to preprocess a source file
 src/gl/MiniFB_GL.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.i
 .PHONY : src/gl/MiniFB_GL.c.i
 
 src/gl/MiniFB_GL.s: src/gl/MiniFB_GL.c.s
@@ -414,7 +414,7 @@ src/gl/MiniFB_GL.s: src/gl/MiniFB_GL.c.s
 
 # target to generate assembly for a file
 src/gl/MiniFB_GL.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.s
 .PHONY : src/gl/MiniFB_GL.c.s
 
 src/x11/X11MiniFB.o: src/x11/X11MiniFB.c.o
@@ -422,7 +422,7 @@ src/x11/X11MiniFB.o: src/x11/X11MiniFB.c.o
 
 # target to build an object file
 src/x11/X11MiniFB.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o
 .PHONY : src/x11/X11MiniFB.c.o
 
 src/x11/X11MiniFB.i: src/x11/X11MiniFB.c.i
@@ -430,7 +430,7 @@ src/x11/X11MiniFB.i: src/x11/X11MiniFB.c.i
 
 # target to preprocess a source file
 src/x11/X11MiniFB.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.i
 .PHONY : src/x11/X11MiniFB.c.i
 
 src/x11/X11MiniFB.s: src/x11/X11MiniFB.c.s
@@ -438,7 +438,7 @@ src/x11/X11MiniFB.s: src/x11/X11MiniFB.c.s
 
 # target to generate assembly for a file
 src/x11/X11MiniFB.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/minifb.dir/build.make minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.s
 .PHONY : src/x11/X11MiniFB.c.s
 
 tests/fullscreen.o: tests/fullscreen.c.o
@@ -446,7 +446,7 @@ tests/fullscreen.o: tests/fullscreen.c.o
 
 # target to build an object file
 tests/fullscreen.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.o
 .PHONY : tests/fullscreen.c.o
 
 tests/fullscreen.i: tests/fullscreen.c.i
@@ -454,7 +454,7 @@ tests/fullscreen.i: tests/fullscreen.c.i
 
 # target to preprocess a source file
 tests/fullscreen.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.i
 .PHONY : tests/fullscreen.c.i
 
 tests/fullscreen.s: tests/fullscreen.c.s
@@ -462,7 +462,7 @@ tests/fullscreen.s: tests/fullscreen.c.s
 
 # target to generate assembly for a file
 tests/fullscreen.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/fullscreen.dir/build.make minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.s
 .PHONY : tests/fullscreen.c.s
 
 tests/hidpi.o: tests/hidpi.c.o
@@ -470,7 +470,7 @@ tests/hidpi.o: tests/hidpi.c.o
 
 # target to build an object file
 tests/hidpi.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.o
 .PHONY : tests/hidpi.c.o
 
 tests/hidpi.i: tests/hidpi.c.i
@@ -478,7 +478,7 @@ tests/hidpi.i: tests/hidpi.c.i
 
 # target to preprocess a source file
 tests/hidpi.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.i
 .PHONY : tests/hidpi.c.i
 
 tests/hidpi.s: tests/hidpi.c.s
@@ -486,7 +486,7 @@ tests/hidpi.s: tests/hidpi.c.s
 
 # target to generate assembly for a file
 tests/hidpi.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/hidpi.dir/build.make minifb/CMakeFiles/hidpi.dir/tests/hidpi.c.s
 .PHONY : tests/hidpi.c.s
 
 tests/input_events.o: tests/input_events.c.o
@@ -494,7 +494,7 @@ tests/input_events.o: tests/input_events.c.o
 
 # target to build an object file
 tests/input_events.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/tests/input_events.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/tests/input_events.c.o
 .PHONY : tests/input_events.c.o
 
 tests/input_events.i: tests/input_events.c.i
@@ -502,7 +502,7 @@ tests/input_events.i: tests/input_events.c.i
 
 # target to preprocess a source file
 tests/input_events.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/tests/input_events.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/tests/input_events.c.i
 .PHONY : tests/input_events.c.i
 
 tests/input_events.s: tests/input_events.c.s
@@ -510,7 +510,7 @@ tests/input_events.s: tests/input_events.c.s
 
 # target to generate assembly for a file
 tests/input_events.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/tests/input_events.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events.dir/build.make minifb/CMakeFiles/input_events.dir/tests/input_events.c.s
 .PHONY : tests/input_events.c.s
 
 tests/input_events_cpp.o: tests/input_events_cpp.cpp.o
@@ -518,7 +518,7 @@ tests/input_events_cpp.o: tests/input_events_cpp.cpp.o
 
 # target to build an object file
 tests/input_events_cpp.cpp.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o
 .PHONY : tests/input_events_cpp.cpp.o
 
 tests/input_events_cpp.i: tests/input_events_cpp.cpp.i
@@ -526,7 +526,7 @@ tests/input_events_cpp.i: tests/input_events_cpp.cpp.i
 
 # target to preprocess a source file
 tests/input_events_cpp.cpp.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.i
 .PHONY : tests/input_events_cpp.cpp.i
 
 tests/input_events_cpp.s: tests/input_events_cpp.cpp.s
@@ -534,7 +534,7 @@ tests/input_events_cpp.s: tests/input_events_cpp.cpp.s
 
 # target to generate assembly for a file
 tests/input_events_cpp.cpp.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/input_events_cpp.dir/build.make minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.s
 .PHONY : tests/input_events_cpp.cpp.s
 
 tests/multiple_windows.o: tests/multiple_windows.c.o
@@ -542,7 +542,7 @@ tests/multiple_windows.o: tests/multiple_windows.c.o
 
 # target to build an object file
 tests/multiple_windows.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o
 .PHONY : tests/multiple_windows.c.o
 
 tests/multiple_windows.i: tests/multiple_windows.c.i
@@ -550,7 +550,7 @@ tests/multiple_windows.i: tests/multiple_windows.c.i
 
 # target to preprocess a source file
 tests/multiple_windows.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.i
 .PHONY : tests/multiple_windows.c.i
 
 tests/multiple_windows.s: tests/multiple_windows.c.s
@@ -558,7 +558,7 @@ tests/multiple_windows.s: tests/multiple_windows.c.s
 
 # target to generate assembly for a file
 tests/multiple_windows.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/multiple_windows.dir/build.make minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.s
 .PHONY : tests/multiple_windows.c.s
 
 tests/noise.o: tests/noise.c.o
@@ -566,7 +566,7 @@ tests/noise.o: tests/noise.c.o
 
 # target to build an object file
 tests/noise.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/tests/noise.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/tests/noise.c.o
 .PHONY : tests/noise.c.o
 
 tests/noise.i: tests/noise.c.i
@@ -574,7 +574,7 @@ tests/noise.i: tests/noise.c.i
 
 # target to preprocess a source file
 tests/noise.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/tests/noise.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/tests/noise.c.i
 .PHONY : tests/noise.c.i
 
 tests/noise.s: tests/noise.c.s
@@ -582,7 +582,7 @@ tests/noise.s: tests/noise.c.s
 
 # target to generate assembly for a file
 tests/noise.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/tests/noise.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/noise.dir/build.make minifb/CMakeFiles/noise.dir/tests/noise.c.s
 .PHONY : tests/noise.c.s
 
 tests/timer.o: tests/timer.c.o
@@ -590,7 +590,7 @@ tests/timer.o: tests/timer.c.o
 
 # target to build an object file
 tests/timer.c.o:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/tests/timer.c.o
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/tests/timer.c.o
 .PHONY : tests/timer.c.o
 
 tests/timer.i: tests/timer.c.i
@@ -598,7 +598,7 @@ tests/timer.i: tests/timer.c.i
 
 # target to preprocess a source file
 tests/timer.c.i:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/tests/timer.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/tests/timer.c.i
 .PHONY : tests/timer.c.i
 
 tests/timer.s: tests/timer.c.s
@@ -606,7 +606,7 @@ tests/timer.s: tests/timer.c.s
 
 # target to generate assembly for a file
 tests/timer.c.s:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/tests/timer.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(MAKE) $(MAKESILENT) -f minifb/CMakeFiles/timer.dir/build.make minifb/CMakeFiles/timer.dir/tests/timer.c.s
 .PHONY : tests/timer.c.s
 
 # Help Target
@@ -682,6 +682,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike
+CMAKE_SOURCE_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike/build
+CMAKE_BINARY_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build"
 
 # Include any dependencies generated for this target.
 include minifb/CMakeFiles/minifb.dir/depend.make
@@ -73,102 +73,102 @@ minifb/CMakeFiles/minifb.dir/codegen:
 .PHONY : minifb/CMakeFiles/minifb.dir/codegen
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_common.c
+minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_common.c
 minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_common.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_common.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_common.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_common.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_common.c"
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/minifb.dir/src/MiniFB_common.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_common.c > CMakeFiles/minifb.dir/src/MiniFB_common.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_common.c" > CMakeFiles/minifb.dir/src/MiniFB_common.c.i
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/minifb.dir/src/MiniFB_common.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_common.c -o CMakeFiles/minifb.dir/src/MiniFB_common.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_common.c" -o CMakeFiles/minifb.dir/src/MiniFB_common.c.s
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_cpp.cpp
+minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_cpp.cpp
 minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o -MF CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o.d -o CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_cpp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o -MF CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o.d -o CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_cpp.cpp"
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_cpp.cpp > CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_cpp.cpp" > CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.i
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_cpp.cpp -o CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_cpp.cpp" -o CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.s
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_internal.c
+minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_internal.c
 minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_internal.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_internal.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_internal.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_internal.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_internal.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_internal.c"
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/minifb.dir/src/MiniFB_internal.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_internal.c > CMakeFiles/minifb.dir/src/MiniFB_internal.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_internal.c" > CMakeFiles/minifb.dir/src/MiniFB_internal.c.i
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/minifb.dir/src/MiniFB_internal.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_internal.c -o CMakeFiles/minifb.dir/src/MiniFB_internal.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_internal.c" -o CMakeFiles/minifb.dir/src/MiniFB_internal.c.s
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_timer.c
+minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_timer.c
 minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_timer.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_timer.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_timer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_timer.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_timer.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_timer.c"
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/minifb.dir/src/MiniFB_timer.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_timer.c > CMakeFiles/minifb.dir/src/MiniFB_timer.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_timer.c" > CMakeFiles/minifb.dir/src/MiniFB_timer.c.i
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/minifb.dir/src/MiniFB_timer.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_timer.c -o CMakeFiles/minifb.dir/src/MiniFB_timer.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_timer.c" -o CMakeFiles/minifb.dir/src/MiniFB_timer.c.s
 
 minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/gl/MiniFB_GL.c
+minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/gl/MiniFB_GL.c
 minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o -MF CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o.d -o CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/gl/MiniFB_GL.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o -MF CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o.d -o CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/gl/MiniFB_GL.c"
 
 minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/gl/MiniFB_GL.c > CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/gl/MiniFB_GL.c" > CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.i
 
 minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/gl/MiniFB_GL.c -o CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/gl/MiniFB_GL.c" -o CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.s
 
 minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/x11/X11MiniFB.c
+minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/x11/X11MiniFB.c
 minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o -MF CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o.d -o CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/x11/X11MiniFB.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o -MF CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o.d -o CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/x11/X11MiniFB.c"
 
 minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/x11/X11MiniFB.c > CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/x11/X11MiniFB.c" > CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.i
 
 minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/x11/X11MiniFB.c -o CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/x11/X11MiniFB.c" -o CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.s
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o: minifb/CMakeFiles/minifb.dir/flags.make
-minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_linux.c
+minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_linux.c
 minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o: minifb/CMakeFiles/minifb.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_linux.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_linux.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_linux.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o -MF CMakeFiles/minifb.dir/src/MiniFB_linux.c.o.d -o CMakeFiles/minifb.dir/src/MiniFB_linux.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_linux.c"
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/minifb.dir/src/MiniFB_linux.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_linux.c > CMakeFiles/minifb.dir/src/MiniFB_linux.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_linux.c" > CMakeFiles/minifb.dir/src/MiniFB_linux.c.i
 
 minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/minifb.dir/src/MiniFB_linux.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_linux.c -o CMakeFiles/minifb.dir/src/MiniFB_linux.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/src/MiniFB_linux.c" -o CMakeFiles/minifb.dir/src/MiniFB_linux.c.s
 
 # Object files for target minifb
 minifb_OBJECTS = \
@@ -192,19 +192,19 @@ minifb/libminifb.a: minifb/CMakeFiles/minifb.dir/src/x11/X11MiniFB.c.o
 minifb/libminifb.a: minifb/CMakeFiles/minifb.dir/src/MiniFB_linux.c.o
 minifb/libminifb.a: minifb/CMakeFiles/minifb.dir/build.make
 minifb/libminifb.a: minifb/CMakeFiles/minifb.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libminifb.a"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -P CMakeFiles/minifb.dir/cmake_clean_target.cmake
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minifb.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libminifb.a"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -P CMakeFiles/minifb.dir/cmake_clean_target.cmake
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minifb.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 minifb/CMakeFiles/minifb.dir/build: minifb/libminifb.a
 .PHONY : minifb/CMakeFiles/minifb.dir/build
 
 minifb/CMakeFiles/minifb.dir/clean:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -P CMakeFiles/minifb.dir/cmake_clean.cmake
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -P CMakeFiles/minifb.dir/cmake_clean.cmake
 .PHONY : minifb/CMakeFiles/minifb.dir/clean
 
 minifb/CMakeFiles/minifb.dir/depend:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anelson/Documents/Projects/SurvivalRoguelike /home/anelson/Documents/Projects/SurvivalRoguelike/minifb /home/anelson/Documents/Projects/SurvivalRoguelike/build /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/CMakeFiles/minifb.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/anelson/Documents/Projects/3D Top-Down Survival Game" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/CMakeFiles/minifb.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : minifb/CMakeFiles/minifb.dir/depend
 

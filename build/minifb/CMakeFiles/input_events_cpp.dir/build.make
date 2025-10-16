@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike
+CMAKE_SOURCE_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike/build
+CMAKE_BINARY_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build"
 
 # Include any dependencies generated for this target.
 include minifb/CMakeFiles/input_events_cpp.dir/depend.make
@@ -73,18 +73,18 @@ minifb/CMakeFiles/input_events_cpp.dir/codegen:
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/codegen
 
 minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o: minifb/CMakeFiles/input_events_cpp.dir/flags.make
-minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/input_events_cpp.cpp
+minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/tests/input_events_cpp.cpp
 minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o: minifb/CMakeFiles/input_events_cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o -MF CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o.d -o CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/input_events_cpp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o -MF CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o.d -o CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/input_events_cpp.cpp"
 
 minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/input_events_cpp.cpp > CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/input_events_cpp.cpp" > CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.i
 
 minifb/CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/input_events_cpp.cpp -o CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/input_events_cpp.cpp" -o CMakeFiles/input_events_cpp.dir/tests/input_events_cpp.cpp.s
 
 # Object files for target input_events_cpp
 input_events_cpp_OBJECTS = \
@@ -98,18 +98,18 @@ minifb/input_events_cpp: minifb/CMakeFiles/input_events_cpp.dir/build.make
 minifb/input_events_cpp: minifb/CMakeFiles/input_events_cpp.dir/compiler_depend.ts
 minifb/input_events_cpp: minifb/libminifb.a
 minifb/input_events_cpp: minifb/CMakeFiles/input_events_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable input_events_cpp"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/input_events_cpp.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable input_events_cpp"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/input_events_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 minifb/CMakeFiles/input_events_cpp.dir/build: minifb/input_events_cpp
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/build
 
 minifb/CMakeFiles/input_events_cpp.dir/clean:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -P CMakeFiles/input_events_cpp.dir/cmake_clean.cmake
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -P CMakeFiles/input_events_cpp.dir/cmake_clean.cmake
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/clean
 
 minifb/CMakeFiles/input_events_cpp.dir/depend:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anelson/Documents/Projects/SurvivalRoguelike /home/anelson/Documents/Projects/SurvivalRoguelike/minifb /home/anelson/Documents/Projects/SurvivalRoguelike/build /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/CMakeFiles/input_events_cpp.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/anelson/Documents/Projects/3D Top-Down Survival Game" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/CMakeFiles/input_events_cpp.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : minifb/CMakeFiles/input_events_cpp.dir/depend
 

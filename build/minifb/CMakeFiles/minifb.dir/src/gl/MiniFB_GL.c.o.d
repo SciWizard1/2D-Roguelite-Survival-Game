@@ -1,8 +1,8 @@
 minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o: \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/gl/MiniFB_GL.c \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/gl/MiniFB_GL.c \
  /usr/include/stdc-predef.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/gl/MiniFB_GL.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/WindowData.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/gl/MiniFB_GL.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/WindowData.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -14,10 +14,10 @@ minifb/CMakeFiles/minifb.dir/src/gl/MiniFB_GL.c.o: \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
  /usr/include/bits/stdint-least.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_enums.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_internal.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/x11/WindowData_X11.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB_enums.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_internal.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/x11/WindowData_X11.h \
  /usr/include/X11/Xlib.h /usr/include/sys/types.h \
  /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
  /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \

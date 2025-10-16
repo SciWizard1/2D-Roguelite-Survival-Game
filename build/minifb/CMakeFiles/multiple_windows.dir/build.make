@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike
+CMAKE_SOURCE_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike/build
+CMAKE_BINARY_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build"
 
 # Include any dependencies generated for this target.
 include minifb/CMakeFiles/multiple_windows.dir/depend.make
@@ -73,18 +73,18 @@ minifb/CMakeFiles/multiple_windows.dir/codegen:
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/codegen
 
 minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o: minifb/CMakeFiles/multiple_windows.dir/flags.make
-minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/multiple_windows.c
+minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/tests/multiple_windows.c
 minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o: minifb/CMakeFiles/multiple_windows.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o -MF CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o.d -o CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/multiple_windows.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o -MF CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o.d -o CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/multiple_windows.c"
 
 minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.i"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/multiple_windows.c > CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.i
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/multiple_windows.c" > CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.i
 
 minifb/CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.s"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/multiple_windows.c -o CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.s
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/multiple_windows.c" -o CMakeFiles/multiple_windows.dir/tests/multiple_windows.c.s
 
 # Object files for target multiple_windows
 multiple_windows_OBJECTS = \
@@ -98,18 +98,18 @@ minifb/multiple_windows: minifb/CMakeFiles/multiple_windows.dir/build.make
 minifb/multiple_windows: minifb/CMakeFiles/multiple_windows.dir/compiler_depend.ts
 minifb/multiple_windows: minifb/libminifb.a
 minifb/multiple_windows: minifb/CMakeFiles/multiple_windows.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable multiple_windows"
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multiple_windows.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable multiple_windows"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multiple_windows.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 minifb/CMakeFiles/multiple_windows.dir/build: minifb/multiple_windows
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/build
 
 minifb/CMakeFiles/multiple_windows.dir/clean:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb && $(CMAKE_COMMAND) -P CMakeFiles/multiple_windows.dir/cmake_clean.cmake
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" && $(CMAKE_COMMAND) -P CMakeFiles/multiple_windows.dir/cmake_clean.cmake
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/clean
 
 minifb/CMakeFiles/multiple_windows.dir/depend:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anelson/Documents/Projects/SurvivalRoguelike /home/anelson/Documents/Projects/SurvivalRoguelike/minifb /home/anelson/Documents/Projects/SurvivalRoguelike/build /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb /home/anelson/Documents/Projects/SurvivalRoguelike/build/minifb/CMakeFiles/multiple_windows.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/anelson/Documents/Projects/3D Top-Down Survival Game" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/CMakeFiles/multiple_windows.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : minifb/CMakeFiles/multiple_windows.dir/depend
 

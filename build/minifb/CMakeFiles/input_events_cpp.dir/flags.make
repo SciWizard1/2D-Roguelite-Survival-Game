@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DUSE_OPENGL_API
 
-CXX_INCLUDES = -I/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include
+CXX_INCLUDES = -I"/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/include"
 
 CXX_FLAGS = -std=c++11 -O2 -Wall -Wextra -Wno-switch -Wno-unused-function -Wno-unused-parameter -Wno-implicit-fallthrough -Wno-cast-function-type
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike
+CMAKE_SOURCE_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anelson/Documents/Projects/SurvivalRoguelike/build
+CMAKE_BINARY_DIR = "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/game.dir/depend.make
@@ -73,46 +73,46 @@ CMakeFiles/game.dir/codegen:
 .PHONY : CMakeFiles/game.dir/codegen
 
 CMakeFiles/game.dir/src/main.c.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/main.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/src/main.c
+CMakeFiles/game.dir/src/main.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/main.c
 CMakeFiles/game.dir/src/main.c.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/game.dir/src/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/game.dir/src/main.c.o -MF CMakeFiles/game.dir/src/main.c.o.d -o CMakeFiles/game.dir/src/main.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/game.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/game.dir/src/main.c.o -MF CMakeFiles/game.dir/src/main.c.o.d -o CMakeFiles/game.dir/src/main.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/main.c"
 
 CMakeFiles/game.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/game.dir/src/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/src/main.c > CMakeFiles/game.dir/src/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/main.c" > CMakeFiles/game.dir/src/main.c.i
 
 CMakeFiles/game.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/game.dir/src/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/src/main.c -o CMakeFiles/game.dir/src/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/main.c" -o CMakeFiles/game.dir/src/main.c.s
 
 CMakeFiles/game.dir/src/chunks.c.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/chunks.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/src/chunks.c
+CMakeFiles/game.dir/src/chunks.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/chunks.c
 CMakeFiles/game.dir/src/chunks.c.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/game.dir/src/chunks.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/game.dir/src/chunks.c.o -MF CMakeFiles/game.dir/src/chunks.c.o.d -o CMakeFiles/game.dir/src/chunks.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/src/chunks.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/game.dir/src/chunks.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/game.dir/src/chunks.c.o -MF CMakeFiles/game.dir/src/chunks.c.o.d -o CMakeFiles/game.dir/src/chunks.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/chunks.c"
 
 CMakeFiles/game.dir/src/chunks.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/game.dir/src/chunks.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/src/chunks.c > CMakeFiles/game.dir/src/chunks.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/chunks.c" > CMakeFiles/game.dir/src/chunks.c.i
 
 CMakeFiles/game.dir/src/chunks.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/game.dir/src/chunks.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/src/chunks.c -o CMakeFiles/game.dir/src/chunks.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/chunks.c" -o CMakeFiles/game.dir/src/chunks.c.s
 
 CMakeFiles/game.dir/src/baserenderer.c.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/baserenderer.c.o: /home/anelson/Documents/Projects/SurvivalRoguelike/src/baserenderer.c
+CMakeFiles/game.dir/src/baserenderer.c.o: /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/baserenderer.c
 CMakeFiles/game.dir/src/baserenderer.c.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/game.dir/src/baserenderer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/game.dir/src/baserenderer.c.o -MF CMakeFiles/game.dir/src/baserenderer.c.o.d -o CMakeFiles/game.dir/src/baserenderer.c.o -c /home/anelson/Documents/Projects/SurvivalRoguelike/src/baserenderer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/game.dir/src/baserenderer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/game.dir/src/baserenderer.c.o -MF CMakeFiles/game.dir/src/baserenderer.c.o.d -o CMakeFiles/game.dir/src/baserenderer.c.o -c "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/baserenderer.c"
 
 CMakeFiles/game.dir/src/baserenderer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/game.dir/src/baserenderer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anelson/Documents/Projects/SurvivalRoguelike/src/baserenderer.c > CMakeFiles/game.dir/src/baserenderer.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/baserenderer.c" > CMakeFiles/game.dir/src/baserenderer.c.i
 
 CMakeFiles/game.dir/src/baserenderer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/game.dir/src/baserenderer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anelson/Documents/Projects/SurvivalRoguelike/src/baserenderer.c -o CMakeFiles/game.dir/src/baserenderer.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/baserenderer.c" -o CMakeFiles/game.dir/src/baserenderer.c.s
 
 # Object files for target game
 game_OBJECTS = \
@@ -130,7 +130,7 @@ game: CMakeFiles/game.dir/build.make
 game: CMakeFiles/game.dir/compiler_depend.ts
 game: minifb/libminifb.a
 game: CMakeFiles/game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -142,6 +142,6 @@ CMakeFiles/game.dir/clean:
 .PHONY : CMakeFiles/game.dir/clean
 
 CMakeFiles/game.dir/depend:
-	cd /home/anelson/Documents/Projects/SurvivalRoguelike/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anelson/Documents/Projects/SurvivalRoguelike /home/anelson/Documents/Projects/SurvivalRoguelike /home/anelson/Documents/Projects/SurvivalRoguelike/build /home/anelson/Documents/Projects/SurvivalRoguelike/build /home/anelson/Documents/Projects/SurvivalRoguelike/build/CMakeFiles/game.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/anelson/Documents/Projects/3D Top-Down Survival Game" "/home/anelson/Documents/Projects/3D Top-Down Survival Game" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build" "/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/CMakeFiles/game.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/game.dir/depend
 

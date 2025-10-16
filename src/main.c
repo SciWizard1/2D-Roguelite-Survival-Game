@@ -19,9 +19,12 @@ int main() {
 
     // Initialize Chunk Pool
     new_chunk_array_size = 16;
-    resize_chunk_array();
-    
-    error_code = generate_chunk(0,0,0);
+    error_code = resize_chunk_array();
+
+    if (error_code < 0) {
+        printf("Failed to allocate memory for chunk buffers.\n");
+        return -1;
+    }
 
     // Main loop:
     do {
@@ -33,9 +36,16 @@ int main() {
             return -1;
         }
 
+        load_nearby_chunks();
         //camera_position_x += 1;
 
-        draw_chunk(0, 0);
+        // Draw all loaded chunks.
+
+        for (uint32_t i = 0; i < chunk_array_size; i++) {
+            //if (chunk_flags[i] == FULL) {
+            draw_chunk(chunk_position_x[i], chunk_position_y[i]);
+            //}
+        }
         
         camera_position_x -= keys[KB_KEY_A];
         camera_position_x += keys[KB_KEY_D];
@@ -48,10 +58,6 @@ int main() {
 
             int32_t mouse_tile_x = ((mouse_x * framebuffer_size_x) / actual_window_size_x + camera_position_x) / TILE_SIZE;
             int32_t mouse_tile_y = ((mouse_y * framebuffer_size_y) / actual_window_size_y + camera_position_y) / TILE_SIZE;
-
-            
-
-            printf("Mouse at (%d, %d)\n", mouse_x, mouse_y);
 
             set_tile(mouse_tile_x, mouse_tile_y, camera_position_z, 1);
         }

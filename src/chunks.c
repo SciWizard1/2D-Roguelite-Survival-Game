@@ -1,14 +1,12 @@
 #include "game.h"
 
-typedef enum {
-    FREE = 0,
-    FULL = 1,
-} loaded_chunk_pool_flags;
-
 // ----------------------------------
 // This is where the actual tile data is stored.
 uint16_t *chunk_array = NULL;
 uint8_t *chunk_flags = NULL;
+int32_t *chunk_position_x = NULL;
+int32_t *chunk_position_y = NULL;
+int32_t *chunk_position_z = NULL;
 
 uint32_t chunk_array_size = 0; // In chunks!
 uint32_t new_chunk_array_size = 0;
@@ -23,10 +21,13 @@ int resize_chunk_array() {
 
     // Allocate memory for new buffers.
     uint16_t *new_chunk_array = realloc(chunk_array, new_chunk_array_size * CHUNK_SIZE * CHUNK_SIZE * sizeof(uint16_t));
-    uint8_t  *new_chunk_flags = realloc(chunk_flags, new_chunk_array_size * CHUNK_SIZE * CHUNK_SIZE * sizeof(uint8_t));
+    uint8_t  *new_chunk_flags = realloc(chunk_flags, new_chunk_array_size * sizeof(uint8_t));
+    int32_t *new_chunk_position_x = realloc(chunk_position_x, new_chunk_array_size * sizeof(uint32_t));
+    int32_t *new_chunk_position_y = realloc(chunk_position_y, new_chunk_array_size * sizeof(uint32_t));
+    int32_t *new_chunk_position_z = realloc(chunk_position_z, new_chunk_array_size * sizeof(uint32_t));
 
     // Ensure pointers are valid.
-    if (new_chunk_array == NULL || new_chunk_flags == NULL) {
+    if (!(new_chunk_array && new_chunk_flags && new_chunk_position_x && new_chunk_position_y && new_chunk_position_z)) {
         return -1;
     }
 
@@ -41,6 +42,10 @@ int resize_chunk_array() {
     chunk_array = new_chunk_array;
     chunk_flags = new_chunk_flags;
     chunk_array_size = new_chunk_array_size;
+    chunk_position_x = new_chunk_position_x;
+    chunk_position_y = new_chunk_position_y;
+    chunk_position_z = new_chunk_position_z;
+
     return 0;
 }
 
@@ -80,6 +85,46 @@ int generate_chunk(int32_t x, int32_t y, int32_t z) {
     set_chunk(x, y, z, chunk_array_index);
 
     chunk_flags[chunk_array_index] = FULL;
+
+    return 0;
+}
+
+int load_nearby_chunks() {
+
+    /*
+    printf("%d, %d, %d, %d", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
+    // Unload distant chunks.
+    for (uint32_t i = 0; i < chunk_array_size; i++) {
+        // Check if the chunk exists within the viewport bounding box.
+        if (
+            viewport_start_chunk_x > chunk_position_x[i] || viewport_end_chunk_x < chunk_position_x[i] ||
+            viewport_start_chunk_y > chunk_position_y[i] || viewport_end_chunk_y < chunk_position_y[i] ||
+            viewport_start_chunk_z > chunk_position_z[i] || viewport_end_chunk_z < chunk_position_z[i]
+        ) {
+            chunk_flags[i] = FREE;
+            printf("Chunk on slot %d has been freed.\n", i);
+        }
+    }
+        */
+
+    // Generate chunks. TODO: Implement chunk loading from the disk.
+    for (int32_t y = viewport_start_chunk_y; y < viewport_end_chunk_y; y++) {
+        for (int32_t x = viewport_start_chunk_x; x < viewport_end_chunk_x; x++) {
+            // Ensure chunks aren't simply regenerated every frame.
+            uint32_t chunk_index = get_chunk(x, y, camera_position_z);
+            if (chunk_index != NULL_CHUNK) {
+                continue;
+            }
+            
+            // Generate chunks.
+            int error_code = generate_chunk(x, y, camera_position_z);
+            if (error_code < 0) {
+                printf("Failed to load chunk (%d, %d, %d)!\n", x, y, camera_position_z);
+            } else {
+                printf("Successfully loaded chunk (%d, %d, %d)!\n", x, y, camera_position_z);
+            }
+        }
+    }
 
     return 0;
 }
@@ -161,6 +206,10 @@ int resize_spatial_access_grid() {
 }
 
 uint32_t get_chunk(int32_t x, int32_t y, int32_t z) {
+    if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
+        return NULL_CHUNK;
+    }
+
     int32_t index = spatial_access_grid[(x - grid_x) + (y - grid_y) * grid_w + (z - grid_z) * grid_w * grid_l];
 
     // Return an index to the chunk object.
@@ -168,8 +217,11 @@ uint32_t get_chunk(int32_t x, int32_t y, int32_t z) {
 }
 
 void set_chunk(int32_t x, int32_t y, int32_t z, uint32_t index) {
+    if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
+        return;
+    }
     int32_t flat_access_index = (x - grid_x) + (y - grid_y) * grid_w + (z - grid_z) * grid_w * grid_l;
-
+    
     spatial_access_grid[flat_access_index] = index;
 }
 

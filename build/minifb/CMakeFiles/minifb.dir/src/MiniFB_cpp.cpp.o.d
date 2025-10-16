@@ -1,7 +1,7 @@
 minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/src/MiniFB_cpp.cpp \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/src/MiniFB_cpp.cpp \
  /usr/include/stdc-predef.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_cpp.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB_cpp.h \
  /usr/include/c++/15.2.1/functional \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -27,8 +27,8 @@ minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: \
  /usr/include/c++/15.2.1/typeinfo \
  /usr/include/c++/15.2.1/bits/functexcept.h \
  /usr/include/c++/15.2.1/bits/exception_defines.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB.h \
- /home/anelson/Documents/Projects/SurvivalRoguelike/minifb/include/MiniFB_enums.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB.h \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/minifb/include/MiniFB_enums.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
  /usr/include/bits/types.h /usr/include/bits/typesizes.h \

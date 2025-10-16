@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/src/baserenderer.c" "CMakeFiles/game.dir/src/baserenderer.c.o" "gcc" "CMakeFiles/game.dir/src/baserenderer.c.o.d"
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/src/chunks.c" "CMakeFiles/game.dir/src/chunks.c.o" "gcc" "CMakeFiles/game.dir/src/chunks.c.o.d"
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/src/main.c" "CMakeFiles/game.dir/src/main.c.o" "gcc" "CMakeFiles/game.dir/src/main.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/baserenderer.c" "CMakeFiles/game.dir/src/baserenderer.c.o" "gcc" "CMakeFiles/game.dir/src/baserenderer.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/chunks.c" "CMakeFiles/game.dir/src/chunks.c.o" "gcc" "CMakeFiles/game.dir/src/chunks.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/main.c" "CMakeFiles/game.dir/src/main.c.o" "gcc" "CMakeFiles/game.dir/src/main.c.o.d"
   "" "game" "gcc" "CMakeFiles/game.dir/link.d"
   )
 

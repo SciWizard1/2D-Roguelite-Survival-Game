@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/anelson/Documents/Projects/SurvivalRoguelike/minifb/tests/fullscreen.c" "minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.o" "gcc" "minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/minifb/tests/fullscreen.c" "minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.o" "gcc" "minifb/CMakeFiles/fullscreen.dir/tests/fullscreen.c.o.d"
   "" "minifb/fullscreen" "gcc" "minifb/CMakeFiles/fullscreen.dir/link.d"
   )
 

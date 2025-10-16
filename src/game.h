@@ -7,13 +7,25 @@
 // Special value indicating no chunk is assigned to this cell.
 // Must NOT be 0, since 0 is a valid chunk index!
 #define NULL_CHUNK 0xFFFFFFFF
+
+// Chunk and tile information. Tile size should be made into a variable to allow for differently sized textures.
+// Masks are for running modulo operators using the AND bitwise operator.
 #define CHUNK_SIZE 256
 #define CHUNK_MASK (CHUNK_SIZE - 1)
 #define TILE_SIZE 16
 #define TILE_MASK (TILE_SIZE - 1)
 
+// Utilities
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
 #define MAX(a,b) (((a) > (b)) ? (a) : (b))
+
+// For finding what chunks to load.
+#define viewport_start_chunk_x (camera_position_x / (TILE_SIZE * CHUNK_SIZE))
+#define viewport_end_chunk_x ((camera_position_x + (int32_t)framebuffer_size_x) / (TILE_SIZE * CHUNK_SIZE))
+#define viewport_start_chunk_y (camera_position_y / (TILE_SIZE * CHUNK_SIZE))
+#define viewport_end_chunk_y ((camera_position_y + (int32_t)framebuffer_size_y) / (TILE_SIZE * CHUNK_SIZE))
+#define viewport_start_chunk_z (camera_position_z)
+#define viewport_end_chunk_z (camera_position_z + 1)
 
 int resize_window();
 void update_size(struct mfb_window *window, int width, int height);
@@ -38,10 +50,21 @@ extern uint32_t textures[];
 
 // --------------------
 
+typedef enum {
+    FREE = 0,
+    FULL = 1,
+} loaded_chunk_pool_flags;
+
 int resize_chunk_array();
 int generate_chunk(int32_t x, int32_t y, int32_t z);
+int load_nearby_chunks();
 
 extern uint16_t *chunk_array;
+extern uint8_t *chunk_flags;
+extern int32_t *chunk_position_x;
+extern int32_t *chunk_position_y;
+extern int32_t *chunk_position_z;
+
 extern uint32_t chunk_array_size; // In chunks!
 extern uint32_t new_chunk_array_size;
 
