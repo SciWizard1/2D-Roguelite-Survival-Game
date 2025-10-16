@@ -104,26 +104,26 @@ int generate_chunk(int32_t x, int32_t y, int32_t z) {
 }
 
 int load_nearby_chunks() {
-
-    /*
-    printf("%d, %d, %d, %d", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
     // Unload distant chunks.
     for (uint32_t i = 0; i < chunk_array_size; i++) {
-        // Check if the chunk exists within the viewport bounding box.
-        if (
-            viewport_start_chunk_x > chunk_position_x[i] || viewport_end_chunk_x < chunk_position_x[i] ||
-            viewport_start_chunk_y > chunk_position_y[i] || viewport_end_chunk_y < chunk_position_y[i] ||
-            viewport_start_chunk_z > chunk_position_z[i] || viewport_end_chunk_z < chunk_position_z[i]
-        ) {
-            chunk_flags[i] = FREE;
-            printf("Chunk on slot %d has been freed.\n", i);
+        if (chunk_flags[i] == FULL) {
+            // Check if the chunk exists within the viewport bounding box.
+            if (
+                viewport_start_chunk_x > chunk_position_x[i] || viewport_end_chunk_x < chunk_position_x[i] ||
+                viewport_start_chunk_y > chunk_position_y[i] || viewport_end_chunk_y < chunk_position_y[i] ||
+                viewport_start_chunk_z > chunk_position_z[i] || viewport_end_chunk_z < chunk_position_z[i]
+            ) {
+                // Temporary logic to delete a chunk without saving.
+                chunk_flags[i] = FREE;
+                set_chunk(chunk_position_x[i], chunk_position_y[i], chunk_position_z[i], NULL_CHUNK);
+                printf("Chunk on slot %d has been freed.\n", i);
+            }
         }
     }
-        */
 
     // Generate chunks. TODO: Implement chunk loading from the disk.
-    for (int32_t y = viewport_start_chunk_y; y <= viewport_end_chunk_y; y++) {
-        for (int32_t x = viewport_start_chunk_x; x <= viewport_end_chunk_x; x++) {
+    for (int32_t y = viewport_start_chunk_y; y < viewport_end_chunk_y; y++) {
+        for (int32_t x = viewport_start_chunk_x; x < viewport_end_chunk_x; x++) {
             // Ensure chunks aren't simply regenerated every frame.
             uint32_t chunk_index = get_chunk(x, y, camera_position_z);
             if (chunk_index != NULL_CHUNK) {
@@ -137,13 +137,6 @@ int load_nearby_chunks() {
             } else {
                 printf("Successfully loaded chunk (%d, %d, %d)!\n", x, y, camera_position_z);
             }
-
-                    // Probe for testing free chunks.
-
-            for (uint32_t i = 0; i < chunk_array_size; i++) {
-                printf("Chunk %d status: %d, ", i, chunk_flags[i]);
-            }
-            printf("\n");
         }
     }
 

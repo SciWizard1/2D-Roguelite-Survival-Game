@@ -34,22 +34,23 @@ int main() {
             return -1;
         }
 
+        // Load chunks.
         load_nearby_chunks();
-        //camera_position_x += 1;
 
         // Draw all loaded chunks.
-
         for (uint32_t i = 0; i < chunk_array_size; i++) {
-            //if (chunk_flags[i] == FULL) {
             draw_chunk(chunk_position_x[i], chunk_position_y[i]);
-            //}
         }
         
+        // Basic movement controls
         camera_position_x -= 4*keys[KB_KEY_A];
         camera_position_x += 4*keys[KB_KEY_D];
         camera_position_y -= 4*keys[KB_KEY_W];
         camera_position_y += 4*keys[KB_KEY_S];
 
+        printf("Chunk viewport (%d, %d), (%d, %d).\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
+
+        // Basic world modification logic
         if (mouse[MOUSE_LEFT]) {
             int32_t mouse_x = mfb_get_mouse_x(window);
             int32_t mouse_y = mfb_get_mouse_y(window);
@@ -60,10 +61,8 @@ int main() {
             set_tile(mouse_tile_x, mouse_tile_y, camera_position_z, 1);
         }
 
-        // Update the screen with the framebuffer.
+        // Update the screen.
         mfb_update_ex(window, framebuffer, framebuffer_size_x, framebuffer_size_y);
-
-
     } while (mfb_wait_sync(window));
 
     return 0;
