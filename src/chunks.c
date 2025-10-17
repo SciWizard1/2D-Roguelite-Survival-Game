@@ -252,21 +252,12 @@ int set_tile(int32_t x, int32_t y, int32_t z, uint16_t tile_id) {
         return -1;
     }
 
-    printf("Tile Pos: (%d, %d, %d)\n", x, y, z);
-    printf("Local tile pos: (%d, %d, %d)\n", (x & CHUNK_MASK), (y & CHUNK_MASK), (z & CHUNK_MASK));
-    printf("Chunk Pos: (%d, %d, %d) Chunk index: %X\n", cx, cy, z, chunk_index);
-
     chunk_array[
         chunk_index * CHUNK_SIZE * CHUNK_SIZE + 
         (x & CHUNK_MASK) +
         (y & CHUNK_MASK) * CHUNK_SIZE +
         (z & CHUNK_MASK) * CHUNK_SIZE * CHUNK_SIZE
     ] = tile_id;
-
-    printf("Modified chunk array index %d\n", chunk_index * CHUNK_SIZE * CHUNK_SIZE + 
-        (x & CHUNK_MASK) +
-        (y & CHUNK_MASK) * CHUNK_SIZE +
-        (z & CHUNK_MASK) * CHUNK_SIZE * CHUNK_SIZE);
 
     return 0;
 }

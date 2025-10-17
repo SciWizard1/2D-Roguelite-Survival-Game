@@ -6,6 +6,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/game.dir/src/chunks.c.o.d"
   "CMakeFiles/game.dir/src/main.c.o"
   "CMakeFiles/game.dir/src/main.c.o.d"
+  "CMakeFiles/game.dir/src/save_file_manager.c.o"
+  "CMakeFiles/game.dir/src/save_file_manager.c.o.d"
+  "CMakeFiles/game.dir/src/string_utilities.c.o"
+  "CMakeFiles/game.dir/src/string_utilities.c.o.d"
   "game"
   "game.pdb"
 )

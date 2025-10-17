@@ -19,6 +19,10 @@ int main() {
     new_chunk_array_size = 16;
     error_code = resize_chunk_array();
 
+    for (uint32_t i = 0; i < 0x4000; i++) {
+        region_header_template[i] = NULL_CHUNK;
+    }
+
     if (error_code < 0) {
         printf("Failed to allocate memory for chunk buffers.\n");
         return -1;
@@ -48,7 +52,7 @@ int main() {
         camera_position_y -= 4*keys[KB_KEY_W];
         camera_position_y += 4*keys[KB_KEY_S];
 
-        printf("Chunk viewport (%d, %d), (%d, %d).\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
+        //printf("Chunk viewport (%d, %d), (%d, %d).\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
 
         // Basic world modification logic
         if (mouse[MOUSE_LEFT]) {
@@ -64,6 +68,15 @@ int main() {
         // Update the screen.
         mfb_update_ex(window, framebuffer, framebuffer_size_x, framebuffer_size_y);
     } while (mfb_wait_sync(window));
+
+    // Free all allocated buffers.
+    free(framebuffer);
+    free(chunk_array);
+    free(chunk_flags);
+    free(chunk_position_x);
+    free(chunk_position_y);
+    free(chunk_position_z);
+    free(spatial_access_grid);
 
     return 0;
 }

@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/baserenderer.c" "CMakeFiles/game.dir/src/baserenderer.c.o" "gcc" "CMakeFiles/game.dir/src/baserenderer.c.o.d"
   "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/chunks.c" "CMakeFiles/game.dir/src/chunks.c.o" "gcc" "CMakeFiles/game.dir/src/chunks.c.o.d"
   "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/main.c" "CMakeFiles/game.dir/src/main.c.o" "gcc" "CMakeFiles/game.dir/src/main.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/save_file_manager.c" "CMakeFiles/game.dir/src/save_file_manager.c.o" "gcc" "CMakeFiles/game.dir/src/save_file_manager.c.o.d"
+  "/home/anelson/Documents/Projects/3D Top-Down Survival Game/src/string_utilities.c" "CMakeFiles/game.dir/src/string_utilities.c.o" "gcc" "CMakeFiles/game.dir/src/string_utilities.c.o.d"
   "" "game" "gcc" "CMakeFiles/game.dir/link.d"
   )
 

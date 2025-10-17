@@ -1,5 +1,5 @@
-CMakeFiles/game.dir/src/chunks.c.o: \
- /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/chunks.c \
+CMakeFiles/game.dir/src/string_utilities.c.o: \
+ /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/string_utilities.c \
  /usr/include/stdc-predef.h \
  /home/anelson/Documents/Projects/3D\ Top-Down\ Survival\ Game/src/game.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \

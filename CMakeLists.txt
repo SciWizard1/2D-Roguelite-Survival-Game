@@ -8,5 +8,5 @@ include_directories(minifb/include)
 
 add_compile_options(-Wall -Wextra -Wpedantic -O3)
 
-add_executable(game src/main.c src/chunks.c src/baserenderer.c)
+add_executable(game src/main.c src/chunks.c src/baserenderer.c src/save_file_manager.c src/string_utilities.c)
 target_link_libraries(game minifb)

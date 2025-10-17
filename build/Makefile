@@ -350,6 +350,54 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/save_file_manager.o: src/save_file_manager.c.o
+.PHONY : src/save_file_manager.o
+
+# target to build an object file
+src/save_file_manager.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/save_file_manager.c.o
+.PHONY : src/save_file_manager.c.o
+
+src/save_file_manager.i: src/save_file_manager.c.i
+.PHONY : src/save_file_manager.i
+
+# target to preprocess a source file
+src/save_file_manager.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/save_file_manager.c.i
+.PHONY : src/save_file_manager.c.i
+
+src/save_file_manager.s: src/save_file_manager.c.s
+.PHONY : src/save_file_manager.s
+
+# target to generate assembly for a file
+src/save_file_manager.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/save_file_manager.c.s
+.PHONY : src/save_file_manager.c.s
+
+src/string_utilities.o: src/string_utilities.c.o
+.PHONY : src/string_utilities.o
+
+# target to build an object file
+src/string_utilities.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/string_utilities.c.o
+.PHONY : src/string_utilities.c.o
+
+src/string_utilities.i: src/string_utilities.c.i
+.PHONY : src/string_utilities.i
+
+# target to preprocess a source file
+src/string_utilities.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/string_utilities.c.i
+.PHONY : src/string_utilities.c.i
+
+src/string_utilities.s: src/string_utilities.c.s
+.PHONY : src/string_utilities.s
+
+# target to generate assembly for a file
+src/string_utilities.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/string_utilities.c.s
+.PHONY : src/string_utilities.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -380,6 +428,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/save_file_manager.o"
+	@echo "... src/save_file_manager.i"
+	@echo "... src/save_file_manager.s"
+	@echo "... src/string_utilities.o"
+	@echo "... src/string_utilities.i"
+	@echo "... src/string_utilities.s"
 .PHONY : help
 
 

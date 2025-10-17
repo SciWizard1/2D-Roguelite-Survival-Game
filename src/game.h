@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 #include "MiniFB.h"
 
 // Special value indicating no chunk is assigned to this cell.
@@ -14,6 +15,7 @@
 #define CHUNK_MASK (CHUNK_SIZE - 1)
 #define TILE_SIZE 16
 #define TILE_MASK (TILE_SIZE - 1)
+#define REGION_ELEMENT_COUNT 0x4000
 
 // Utilities
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
@@ -82,3 +84,19 @@ extern int32_t grid_w, grid_l, grid_h; // In chunks!
 // These variables are for updating the variables above.
 extern int32_t new_grid_x, new_grid_y, new_grid_z;
 extern int32_t new_grid_w, new_grid_l, new_grid_h;
+
+// --------------------
+
+#define REGION_WIDTH 16  // The horizontal size of a region in chunks
+#define REGION_HEIGHT 64 // The vertical size of a region in chunks.
+
+
+void create_directory(const char *path);
+void create_new_save(const char *path);
+char* concatenate_strings(const char* a, const char* b);
+int create_region(int32_t x, int32_t y, int32_t z);
+
+// Path to all saves
+extern char *save_directory_path;
+extern char *selected_save_directory;
+extern uint32_t region_header_template[];
