@@ -1,1 +1,0 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/game.dir/link.d CMakeFiles/game.dir/src/main.c.o CMakeFiles/game.dir/src/chunks.c.o CMakeFiles/game.dir/src/baserenderer.c.o CMakeFiles/game.dir/src/save_file_manager.c.o CMakeFiles/game.dir/src/string_utilities.c.o -o game  minifb/libminifb.a -lX11 -lGL

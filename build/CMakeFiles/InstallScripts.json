@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/cmake_install.cmake",
-		"/home/anelson/Documents/Projects/3D Top-Down Survival Game/build/minifb/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
