@@ -20,11 +20,11 @@ void create_directory(const char *path) {
     #endif
 }
 
-int load_chunk_from_disk(int32_t x, int32_t y, int32_t z) {
+int load_chunk_from_disk(int32_t x, int32_t y) {
     return 0;
 }
 
-int save_chunk_to_disk(int32_t x, int32_t y, int32_t z) {
+int save_chunk_to_disk(int32_t x, int32_t y) {
     return 0;
 }
 
@@ -34,8 +34,8 @@ void create_new_save(const char *path) {
     create_directory(next_used_path);
 }
 
-int create_region(int32_t x, int32_t y, int32_t z) {
-    sprintf(region_file_name, "region_%d_%d_%d.bin", x, y, z);
+int create_region(int32_t x, int32_t y) {
+    sprintf(region_file_name, "region_%d_%d.bin", x, y);
 
     int32_t region_directory_size = strlen(save_directory_path) + strlen(selected_save_directory) + strlen(tile_data_directory) + strlen(region_file_name) + 1;
 

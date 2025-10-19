@@ -76,7 +76,7 @@ uint32_t textures[256 * 256] =
 };
 
 void draw_chunk(int32_t cx, int32_t cy) {
-    uint32_t chunk_index = get_chunk(cx, cy, camera_position_z);
+    uint32_t chunk_index = get_chunk(cx, cy);
     if (chunk_index == NULL_CHUNK) {
         return;
     }

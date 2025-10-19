@@ -19,7 +19,7 @@ int main() {
     new_chunk_array_size = 16;
     error_code = resize_chunk_array();
 
-    for (uint32_t i = 0; i < 0x4000; i++) {
+    for (uint32_t i = 0; i < REGION_ELEMENT_COUNT; i++) {
         region_header_template[i] = NULL_CHUNK;
     }
 
@@ -62,7 +62,7 @@ int main() {
             int32_t mouse_tile_x = FLOOR_DIV(((mouse_x * (int32_t)framebuffer_size_x) / (int32_t)actual_window_size_x + camera_position_x), TILE_SIZE);
             int32_t mouse_tile_y = FLOOR_DIV(((mouse_y * (int32_t)framebuffer_size_y) / (int32_t)actual_window_size_y + camera_position_y), TILE_SIZE);
 
-            set_tile(mouse_tile_x, mouse_tile_y, camera_position_z, 1);
+            set_tile(mouse_tile_x, mouse_tile_y, 1);
         }
 
         // Update the screen.
@@ -75,7 +75,6 @@ int main() {
     free(chunk_flags);
     free(chunk_position_x);
     free(chunk_position_y);
-    free(chunk_position_z);
     free(spatial_access_grid);
 
     return 0;
