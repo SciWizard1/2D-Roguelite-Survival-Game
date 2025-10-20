@@ -1,11 +1,14 @@
 #include "game.h"
 
 int main() {
+
+    new_chunk_array_size = 16;
+
+    // General-use error value for the main loop.
     int error_code = 0;
 
     // Open a window
     window = mfb_open_ex("The Wonderous Deathly Valley", next_framebuffer_size_x, next_framebuffer_size_y, WF_RESIZABLE);
-
     mfb_set_target_fps(60);
 
     // Initialize callbacks
@@ -15,18 +18,12 @@ int main() {
     const uint8_t *mouse = mfb_get_mouse_button_buffer(window);
     const uint8_t *keys  = mfb_get_key_buffer(window);
 
+    // Initialize memory regions.
+    initialize_blank_region_header();
+    initialize_tracked_memory_buffers();
+
     // Initialize Chunk Pool
-    new_chunk_array_size = 16;
-    error_code = resize_chunk_array();
-
-    for (uint32_t i = 0; i < REGION_ELEMENT_COUNT; i++) {
-        region_header_template[i] = NULL_CHUNK;
-    }
-
-    if (error_code < 0) {
-        printf("Failed to allocate memory for chunk buffers.\n");
-        return -1;
-    }
+    resize_chunk_array();
 
     // Main loop:
     do {
@@ -70,12 +67,18 @@ int main() {
     } while (mfb_wait_sync(window));
 
     // Free all allocated buffers.
-    free(framebuffer);
-    free(chunk_array);
-    free(chunk_flags);
-    free(chunk_position_x);
-    free(chunk_position_y);
-    free(spatial_access_grid);
+    tracked_free(framebuffer);
+    tracked_free(chunk_array);
+    tracked_free(chunk_flags);
+    tracked_free(chunk_position_x);
+    tracked_free(chunk_position_y);
+    tracked_free(spatial_access_grid);
+
+    printf("Exited with %d unfreed memory blocks totaling %d bytes!\n", pointer_stack_top, stack_memory_usage);
+
+    for (uint32_t i = 0; i < pointer_stack_top; i++) {
+        printf("Unfreed pointer %lX with %d bytes.\n", (uint64_t)pointer_stack[i], buffer_sizes[i]);
+    }
 
     return 0;
 }

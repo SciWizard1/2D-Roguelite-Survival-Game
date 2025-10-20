@@ -19,29 +19,20 @@ int resize_chunk_array() {
     uint8_t null_flag = chunk_flags == NULL;
 
     // Allocate memory for new buffers.
-    uint16_t *new_chunk_array = realloc(chunk_array, new_chunk_array_size * CHUNK_SIZE * CHUNK_SIZE * sizeof(uint16_t));
-    uint8_t  *new_chunk_flags = realloc(chunk_flags, new_chunk_array_size * sizeof(uint8_t));
-    int32_t *new_chunk_position_x = realloc(chunk_position_x, new_chunk_array_size * sizeof(uint32_t));
-    int32_t *new_chunk_position_y = realloc(chunk_position_y, new_chunk_array_size * sizeof(uint32_t));
-
-    // Ensure pointers are valid.
-    if (!(new_chunk_array && new_chunk_flags && new_chunk_position_x && new_chunk_position_y)) {
-        return -1;
-    }
+    chunk_array = tracked_realloc(chunk_array, new_chunk_array_size * CHUNK_SIZE * CHUNK_SIZE * sizeof(uint16_t));
+    chunk_flags = tracked_realloc(chunk_flags, new_chunk_array_size * sizeof(uint8_t));
+    chunk_position_x = tracked_realloc(chunk_position_x, new_chunk_array_size * sizeof(uint32_t));
+    chunk_position_y = tracked_realloc(chunk_position_y, new_chunk_array_size * sizeof(uint32_t));
 
     // Reset flags to prevent garbage values.
     if (null_flag) {
         for (uint32_t i = 0; i < chunk_array_size; i++) {
-            new_chunk_flags[i] = FREE;
+            chunk_flags[i] = FREE;
         }
     }
 
     // Update old values.
-    chunk_array = new_chunk_array;
-    chunk_flags = new_chunk_flags;
     chunk_array_size = new_chunk_array_size;
-    chunk_position_x = new_chunk_position_x;
-    chunk_position_y = new_chunk_position_y;
 
     return 0;
 }
@@ -160,11 +151,7 @@ int resize_spatial_access_grid() {
     }
 
     // Allocate new memory for the new buffer.
-    uint32_t *new_spatial_access_grid = malloc(new_grid_w * new_grid_l * sizeof(uint32_t));
-    if (new_spatial_access_grid == NULL) {
-        // Failed to reallocate framebuffer.
-        return -1;
-    }
+    uint32_t *new_spatial_access_grid = tracked_malloc(new_grid_w * new_grid_l * sizeof(uint32_t));
 
     // Ensure the allocated memory is rid of garbage values.
     for (int32_t y = 0; y < new_grid_l; y++) {
@@ -192,7 +179,7 @@ int resize_spatial_access_grid() {
         }
     }
 
-    free(spatial_access_grid);
+    tracked_free(spatial_access_grid);
 
     // Transfer extra data describing the new buffer.
     spatial_access_grid = new_spatial_access_grid;
@@ -215,7 +202,7 @@ uint32_t get_chunk(int32_t x, int32_t y) {
 }
 
 void set_chunk(int32_t x, int32_t y, uint32_t index) {
-    //if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l || z < grid_z || z >= grid_z + grid_h) {
+    //if (x < grid_x || x >= grid_x + grid_h || y < grid_y || y >= grid_y + grid_l) {
     //    printf("Failed to set chunk (%d, %d, %d)!\n", x, y, z);
     //    return;
     //}

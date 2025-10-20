@@ -83,14 +83,28 @@ extern int32_t new_grid_w, new_grid_l;
 
 #define REGION_WIDTH 16  // The horizontal size of a region in chunks
 #define REGION_ELEMENT_COUNT REGION_WIDTH * REGION_WIDTH
-
+#define MAX_TRACKED_POINTERS 256
+#define MAX_MALLOC_RETRIES 0 // Not recommended to retry memory allocation upon failure.
 
 void create_directory(const char *path);
 void create_new_save(const char *path);
 char* concatenate_strings(const char* a, const char* b);
 int create_region(int32_t x, int32_t y);
+void initialize_blank_region_header();
 
 // Path to all saves
 extern char *save_directory_path;
 extern char *selected_save_directory;
 extern uint32_t region_header_template[];
+
+// Functions for tracking memory usage and performing proper error handling.
+void initialize_tracked_memory_buffers();
+void trigger_memory_failure();
+void tracked_free(void* pointer);
+void* tracked_malloc(uint32_t size);
+void* tracked_realloc(void* pointer, uint32_t size);
+
+extern uint32_t stack_memory_usage;
+extern void*    pointer_stack[];
+extern uint32_t buffer_sizes[];
+extern uint32_t pointer_stack_top;

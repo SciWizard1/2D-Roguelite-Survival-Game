@@ -21,10 +21,14 @@ void create_directory(const char *path) {
 }
 
 int load_chunk_from_disk(int32_t x, int32_t y) {
+    (void)x;
+    (void)y;
     return 0;
 }
 
 int save_chunk_to_disk(int32_t x, int32_t y) {
+    (void)x;
+    (void)y;
     return 0;
 }
 
@@ -39,7 +43,7 @@ int create_region(int32_t x, int32_t y) {
 
     int32_t region_directory_size = strlen(save_directory_path) + strlen(selected_save_directory) + strlen(tile_data_directory) + strlen(region_file_name) + 1;
 
-    region_file_directory = malloc(region_directory_size);
+    region_file_directory = tracked_malloc(region_directory_size);
     if (region_file_directory == NULL) {
         return -1;
     }
@@ -72,5 +76,12 @@ int create_region(int32_t x, int32_t y) {
 
     fwrite(region_header_template, sizeof(uint32_t), REGION_ELEMENT_COUNT, region_file);
     fclose(region_file);
+    tracked_free(region_file_directory);
     return 0;
+}
+
+void initialize_blank_region_header() { 
+    for (uint32_t i = 0; i < REGION_ELEMENT_COUNT; i++) {
+        region_header_template[i] = NULL_CHUNK;
+    }
 }

@@ -15,12 +15,8 @@ int resize_window() {
     if (framebuffer_size_x == next_framebuffer_size_x && framebuffer_size_y == next_framebuffer_size_y) {
         return 0;
     }
-    uint32_t *new_framebuffer = realloc(framebuffer, next_framebuffer_size_x * next_framebuffer_size_y * 4);
-    if (new_framebuffer == NULL) {
-        // Failed to reallocate framebuffer.
-        return -1;
-    }
-    framebuffer = new_framebuffer;
+    framebuffer = tracked_realloc(framebuffer, next_framebuffer_size_x * next_framebuffer_size_y * 4);
+
     framebuffer_size_x = next_framebuffer_size_x;
     framebuffer_size_y = next_framebuffer_size_y;
     return 0;
