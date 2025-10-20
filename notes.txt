@@ -16,11 +16,80 @@ Surface:
 == Metaphysical Ark ==
 
 
-// This simply highlights the internal architecture that is planned.
-// However, in its current state, it does not depict any significant information.
 Technical Details:
 
-main() {
-    render();
-    
-}
+==== NBT-like data structure ====
+
+A spatial access grid is defined here as a substitute for a hashmap.
+
+uint32_t *spatial_access_grid;
+int32_t grid_x, grid_y;
+int32_t grid_w, grid_l;
+
+Let's allow every chunk to have its own internal buffer to keep track of chunks:
+
+void **metadata_spatial_access_grid; // This is the same size in bytes as the other spatial access grid.
+
+Each element corresponds to a pointer to a list of instances of NBT-like hierarchies.
+All chunks will also have a grid that points to the individual NBT-like instances defined as follows:
+
+uint32_t *metadata_offsets;
+
+These offsets will be added to the addresses defined in metadata_spatial_access_grid to access the NBT-like objects.
+
+void *nbt_structure = metadata_spatial_access_grid[<convert chunk position to index>] + (void*)chunk_metadata_offsets[(y & CHUNK_MASK) * CHUNK_SIZE + (x & CHUNK_MASK)];
+
+The structure of a single nbt_structure is the following:
+
+[payload_size, descriptor_byte, info_payload_size (if descriptor_byte permits), <info>, descriptor_byte, info_payload_size (if descriptor_byte permits), <info>, ...]
+
+Static values such as single integers that take the place of <info> do not require a payload size,
+and can instead be determined using a lookup table. 
+
+
+Example: An item with 1241 durability:
+
+[
+    0x00000005, // The number of bytes following this value.
+    0x01,       // Durability byte descriptor: does not need a payload value
+    0x000004D9, // This item has 1241 (0x4D9) durability
+]
+
+In memory grouped into 64-bit chunks:
+
+[
+    0000000501000004
+    D9
+]
+
+Example: an item with an inventory with 3 slots, the second of which containing 47 of an item of ID: 12 with a durability of 87:
+
+[
+    0x00000026, // Item payload size is 38 bytes.
+    0x03,       // Inventory byte descriptor: needs a payload size
+    0x00000018, // Inventory payload size of 24 bytes (0x18) (Include only the items themselves! Not the NBT associated with them.)
+
+    0x00000000, // Item slot 0
+    0x00000000, // Slot 0 metadata byte offset - an offset of 0 means that there is no additional data.
+
+    0x000C002F, // Item slot 1 (ID 12 (0x000C), Quantity of 47 (0x002F))
+    0x0000000C, // Slot 1 metadata byte offset (Metadata is found by adding 12 (0xC) to the current search pointer)
+
+    0x00000000, // Item slot 2
+    0x00000000, // Slot 2 metadata byte offset
+
+    0x00000005, // Slot 1 metadata payload size
+    0x01,       // Durability byte descriptor: no payload size
+    0x00000057  // Durability of 87 (0x57)
+]
+
+In memory:
+
+[
+    0000001E03000000
+    1800000000000000
+    00000C002F000000
+    0C00000000000000
+    0000000005010000
+    0057
+]

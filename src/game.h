@@ -73,7 +73,7 @@ void set_chunk(int32_t x, int32_t y, uint32_t index);
 int set_tile(int32_t x, int32_t y, uint16_t tile_id);
 
 extern uint32_t *spatial_access_grid;
-extern int32_t grid_x, grid_y; // These coords refer to the northern-western-top corner of the box in terms of world coordinates scaled to chunk units.
+extern int32_t grid_x, grid_y; // These coords refer to the top-left corner of the box in terms of world coordinates scaled to chunk units.
 extern int32_t grid_w, grid_l; // In chunks!
 // These variables are for updating the variables above.
 extern int32_t new_grid_x, new_grid_y;
