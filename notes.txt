@@ -46,12 +46,15 @@ The structure of a single nbt_structure is the following:
 Static values such as single integers that take the place of <info> do not require a payload size,
 and can instead be determined using a lookup table. 
 EVERYTHING in this array must be 32-bit for alignment reasons.
+Also an item cannot occupy the 0th ID as it is required for this tree to work.
+
+*qwords refers to a 32-bit section in memory
 
 
 Example: An item with 1241 durability:
 
 [
-    0x00000005, // The number of bytes following this value.
+    0x00000002, // The number of qwords following this value.
     0x00000001, // Durability byte descriptor: does not need a payload value
     0x000004D9, // This item has 1241 (0x4D9) durability
 ]
@@ -59,20 +62,20 @@ Example: An item with 1241 durability:
 Example: an item with an inventory with 3 slots, the second of which containing 47 of an item of ID: 12 with a durability of 87:
 
 [
-    0x00000026, // Item payload size is 38 bytes.
+    0x00000026, // Item payload size is 11 qwords.
     0x00000003, // Inventory byte descriptor: needs a payload size
-    0x00000018, // Inventory payload size of 24 bytes (0x18) (Include only the items themselves! Not the NBT associated with them.)
+    0x00000006, // Inventory payload size of 6 qwords (Include only the items themselves! Not the NBT associated with them.)
 
     0x00000000, // Item slot 0
     0x00000000, // Slot 0 metadata byte offset - an offset of 0 means that there is no additional data.
 
     0x000C002F, // Item slot 1 (ID 12 (0x000C), Quantity of 47 (0x002F))
-    0x0000000C, // Slot 1 metadata byte offset (Metadata is found by adding 12 (0xC) to the current search pointer)
+    0x00000003, // Slot 1 metadata byte offset (Metadata is found by adding 3 to the current search index)
 
     0x00000000, // Item slot 2
     0x00000000, // Slot 2 metadata byte offset
 
-    0x00000005, // Slot 1 metadata payload size
+    0x00000002, // Slot 1 metadata payload size in qwords
     0x00000001, // Durability byte descriptor: no payload size
     0x00000057  // Durability of 87 (0x57)
 ]
