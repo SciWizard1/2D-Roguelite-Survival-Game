@@ -72,7 +72,8 @@ int main() {
     tracked_free(chunk_flags);
     tracked_free(chunk_position_x);
     tracked_free(chunk_position_y);
-    tracked_free(spatial_access_grid);
+    tracked_free(tile_spatial_access_grid);
+    tracked_free(nbt_spatial_access_grid);
 
     printf("Exited with %d unfreed memory blocks totaling %d bytes!\n", pointer_stack_top, stack_memory_usage);
 

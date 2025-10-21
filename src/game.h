@@ -68,11 +68,12 @@ extern uint32_t chunk_array_size; // In chunks!
 extern uint32_t new_chunk_array_size;
 
 int resize_spatial_access_grid();
-uint32_t get_chunk(int32_t x, int32_t y);
-void set_chunk(int32_t x, int32_t y, uint32_t index);
+uint32_t get_chunk_tiles(int32_t x, int32_t y);
+void set_chunk_tiles(int32_t x, int32_t y, uint32_t index);
 int set_tile(int32_t x, int32_t y, uint16_t tile_id);
 
-extern uint32_t *spatial_access_grid;
+extern uint32_t *tile_spatial_access_grid;
+extern uint32_t **nbt_spatial_access_grid;
 extern int32_t grid_x, grid_y; // These coords refer to the top-left corner of the box in terms of world coordinates scaled to chunk units.
 extern int32_t grid_w, grid_l; // In chunks!
 // These variables are for updating the variables above.
