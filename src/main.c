@@ -25,6 +25,9 @@ int main() {
     // Initialize Chunk Pool
     resize_chunk_array();
 
+    new_entity_pool_size = 16;
+    resize_entity_array();
+
     // Main loop:
     do {
 
@@ -74,6 +77,9 @@ int main() {
     tracked_free(chunk_position_y);
     tracked_free(tile_spatial_access_grid);
     tracked_free(nbt_spatial_access_grid);
+    tracked_free(entity_ids);
+    tracked_free(entity_pos_x);
+    tracked_free(entity_pos_y);
 
     printf("Exited with %d unfreed memory blocks totaling %d bytes!\n", pointer_stack_top, stack_memory_usage);
 

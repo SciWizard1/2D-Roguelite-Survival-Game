@@ -71,7 +71,10 @@ int resize_spatial_access_grid();
 uint32_t get_chunk_tiles(int32_t x, int32_t y);
 void set_chunk_tiles(int32_t x, int32_t y, uint32_t index);
 int set_tile(int32_t x, int32_t y, uint16_t tile_id);
+uint32_t* get_chunk_nbt(int32_t x, int32_t y);
+void set_chunk_nbt(int32_t x, int32_t y, uint32_t* index);
 
+extern uint32_t **nbt_spatial_access_grid;
 extern uint32_t *tile_spatial_access_grid;
 extern uint32_t **nbt_spatial_access_grid;
 extern int32_t grid_x, grid_y; // These coords refer to the top-left corner of the box in terms of world coordinates scaled to chunk units.
@@ -109,3 +112,18 @@ extern uint32_t stack_memory_usage;
 extern void*    pointer_stack[];
 extern uint32_t buffer_sizes[];
 extern uint32_t pointer_stack_top;
+
+// -------------
+
+void resize_entity_array();
+
+
+extern uint32_t *entity_ids;
+extern uint32_t *entity_pos_x;
+extern uint32_t *entity_pos_y;
+
+extern uint32_t current_entities;
+extern uint32_t entity_pool_size;
+extern uint32_t new_entity_pool_size;
+
+extern uint32_t player_index;
