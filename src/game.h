@@ -119,8 +119,8 @@ void resize_entity_array();
 
 
 extern uint32_t *entity_ids;
-extern uint32_t *entity_pos_x;
-extern uint32_t *entity_pos_y;
+extern int32_t *entity_pos_x;
+extern int32_t *entity_pos_y;
 
 extern uint32_t current_entities;
 extern uint32_t entity_pool_size;

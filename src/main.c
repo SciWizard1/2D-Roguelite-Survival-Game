@@ -47,10 +47,14 @@ int main() {
         }
         
         // Basic movement controls
-        camera_position_x -= 4*keys[KB_KEY_A];
-        camera_position_x += 4*keys[KB_KEY_D];
-        camera_position_y -= 4*keys[KB_KEY_W];
-        camera_position_y += 4*keys[KB_KEY_S];
+        entity_pos_x[player_index] -= 2 * keys[KB_KEY_A];
+        entity_pos_x[player_index] += 2 * keys[KB_KEY_D];
+        entity_pos_y[player_index] -= 2 * keys[KB_KEY_W];
+        entity_pos_y[player_index] += 2 * keys[KB_KEY_S];
+
+        // Move the camera towards the player (0b1110 is the best approximation of 0.9 in Q28.4)
+        camera_position_x = camera_position_x + (int32_t)((((int64_t)(entity_pos_x[player_index] - camera_position_x)) * 1) >> 4);
+        camera_position_y = camera_position_y + (int32_t)((((int64_t)(entity_pos_y[player_index] - camera_position_y)) * 1) >> 4);
 
         //printf("Chunk viewport (%d, %d), (%d, %d).\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
 

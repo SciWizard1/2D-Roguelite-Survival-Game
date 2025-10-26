@@ -1,8 +1,8 @@
 #include "game.h"
 
 uint32_t *entity_ids = NULL;
-uint32_t *entity_pos_x = NULL;
-uint32_t *entity_pos_y = NULL;
+int32_t *entity_pos_x = NULL;
+int32_t *entity_pos_y = NULL;
 
 uint32_t current_entities = 0;
 uint32_t entity_pool_size = 0;
