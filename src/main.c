@@ -1,7 +1,8 @@
 #include "game.h"
 
-int main() {
+struct mfb_timer *fps_timer;
 
+int main() {
     new_chunk_array_size = 16;
 
     // General-use error value for the main loop.
@@ -9,10 +10,11 @@ int main() {
 
     // Open a window
     window = mfb_open_ex("The Wonderous Deathly Valley", next_framebuffer_size_x, next_framebuffer_size_y, WF_RESIZABLE);
+    
     mfb_set_target_fps(60);
 
     // Initialize callbacks
-    mfb_set_resize_callback(window, update_size);
+    mfb_set_resize_callback(window, update_window_size);
 
     // Setup controls
     const uint8_t *mouse = mfb_get_mouse_button_buffer(window);
@@ -27,6 +29,11 @@ int main() {
 
     new_entity_pool_size = 16;
     resize_entity_array();
+
+    TILE_SIZE_EXPONENT = 4;
+    update_tile_size();
+
+    fps_timer = mfb_timer_create();
 
     // Main loop:
     do {
@@ -47,10 +54,10 @@ int main() {
         }
         
         // Basic movement controls
-        entity_pos_x[player_index] -= 2 * keys[KB_KEY_A];
-        entity_pos_x[player_index] += 2 * keys[KB_KEY_D];
-        entity_pos_y[player_index] -= 2 * keys[KB_KEY_W];
-        entity_pos_y[player_index] += 2 * keys[KB_KEY_S];
+        entity_pos_x[player_index] -= 8 * keys[KB_KEY_A];
+        entity_pos_x[player_index] += 8 * keys[KB_KEY_D];
+        entity_pos_y[player_index] -= 8 * keys[KB_KEY_W];
+        entity_pos_y[player_index] += 8 * keys[KB_KEY_S];
 
         // Move the camera towards the player (0b1110 is the best approximation of 0.9 in Q28.4)
         camera_position_x = camera_position_x + (int32_t)((((int64_t)(entity_pos_x[player_index] - camera_position_x)) * 1) >> 4);
@@ -63,14 +70,18 @@ int main() {
             int32_t mouse_x = mfb_get_mouse_x(window);
             int32_t mouse_y = mfb_get_mouse_y(window);
 
-            int32_t mouse_tile_x = FLOOR_DIV(((mouse_x * (int32_t)framebuffer_size_x) / (int32_t)actual_window_size_x + camera_position_x), TILE_SIZE);
-            int32_t mouse_tile_y = FLOOR_DIV(((mouse_y * (int32_t)framebuffer_size_y) / (int32_t)actual_window_size_y + camera_position_y), TILE_SIZE);
-
+            int32_t mouse_tile_x = FLOOR_DIV(((mouse_x * (int32_t)framebuffer_size_x) / (int32_t)actual_window_size_x + camera_position_x), (int32_t)TILE_SIZE);
+            int32_t mouse_tile_y = FLOOR_DIV(((mouse_y * (int32_t)framebuffer_size_y) / (int32_t)actual_window_size_y + camera_position_y), (int32_t)TILE_SIZE);
             set_tile(mouse_tile_x, mouse_tile_y, 1);
         }
 
         // Update the screen.
         mfb_update_ex(window, framebuffer, framebuffer_size_x, framebuffer_size_y);
+
+        double frame_time = mfb_timer_delta(fps_timer);
+        if (frame_time > 0.03f) {
+            printf("MS THIS FRAME: %lf\n", frame_time * 1000.0f);
+        }
     } while (mfb_wait_sync(window));
 
     // Free all allocated buffers.

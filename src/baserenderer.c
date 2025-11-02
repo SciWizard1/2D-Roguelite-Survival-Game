@@ -22,11 +22,21 @@ int resize_window() {
     return 0;
 }
 
-void update_size(struct mfb_window *window, int width, int height) {
+void update_window_size(struct mfb_window *window, int width, int height) {
     (void)window;
     actual_window_size_x = width;
     actual_window_size_y = height;
-    next_framebuffer_size_x = (width * framebuffer_size_y) / height;
+    next_framebuffer_size_x = width;
+    next_framebuffer_size_y = height;
+}
+
+uint32_t TILE_SIZE_EXPONENT = 0;
+uint32_t TILE_SIZE = 0;
+uint32_t TILE_MASK = 0;
+
+void update_tile_size() {
+    TILE_SIZE = 1 << TILE_SIZE_EXPONENT;
+    TILE_MASK = TILE_SIZE - 1;
 }
 
 // In fixed point Q28:4
@@ -71,6 +81,7 @@ uint32_t textures[256 * 256] =
   0x885437, 0xbb7d5b, 0x885437, 0xab6a47, 0x885437, 0xab6a47, 0x744730, 0xab6a47, 0xab6a47, 0xab6a47, 0x885437, 0xab6a47, 0xab6a47, 0x885437, 0xab6a47, 0xab6a47
 };
 
+// TODO: Optimize function for better cache friendliness.
 void draw_chunk(int32_t cx, int32_t cy) {
     uint32_t chunk_index = get_chunk_tiles(cx, cy);
     if (chunk_index == NULL_CHUNK) {
@@ -115,5 +126,4 @@ void draw_chunk(int32_t cx, int32_t cy) {
                 ];
         }
     }
-
 }

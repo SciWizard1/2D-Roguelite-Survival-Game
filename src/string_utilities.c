@@ -72,12 +72,6 @@ void* tracked_malloc(uint32_t size) {
     buffer_sizes[pointer_stack_top]  = size;
     pointer_stack_top++;
 
-    printf("Allocation sizes: ");
-    for (uint32_t i = 0; i < pointer_stack_top; i++) {
-        printf("%d, ", buffer_sizes[i]);
-    }
-    printf("\n");
-
     return pointer;
 }
 
@@ -149,6 +143,9 @@ void* tracked_realloc(void* pointer, uint32_t size) {
         trigger_memory_failure();
         return NULL;
     }
+
+    stack_memory_usage -= buffer_sizes[pointer_index];
+    stack_memory_usage += size;
 
     pointer_stack[pointer_index] = new_pointer;
     buffer_sizes[pointer_index] = size;

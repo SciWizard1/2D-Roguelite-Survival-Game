@@ -3,18 +3,24 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <GL/glew.h>
 #include "MiniFB.h"
 
 // Special value indicating no chunk is assigned to this cell.
 // Must NOT be 0, since 0 is a valid chunk index!
 #define NULL_CHUNK 0xFFFFFFFF
 
-// Chunk and tile information. Tile size should be made into a variable to allow for differently sized textures.
+// Chunk and tile information.
 // Masks are for running modulo operators using the AND bitwise operator.
 #define CHUNK_SIZE 256
 #define CHUNK_MASK (CHUNK_SIZE - 1)
-#define TILE_SIZE 16
-#define TILE_MASK (TILE_SIZE - 1)
+
+// Variable names are capitalized due to migration from value definitions.
+extern uint32_t TILE_SIZE_EXPONENT; // In powers of two
+extern uint32_t TILE_SIZE;
+extern uint32_t TILE_MASK;
+//#define TILE_SIZE 16
+//#define TILE_MASK (TILE_SIZE - 1)
 
 // Utilities
 #define MIN(a,b) (((a) < (b)) ? (a) : (b))
@@ -24,14 +30,15 @@
 
 // For finding what chunks to load.
 
-#define viewport_start_chunk_x FLOOR_DIV(camera_position_x, (TILE_SIZE * CHUNK_SIZE))
-#define viewport_end_chunk_x CEIL_DIV(camera_position_x + (int32_t)framebuffer_size_x, (TILE_SIZE * CHUNK_SIZE))
-#define viewport_start_chunk_y FLOOR_DIV(camera_position_y, (TILE_SIZE * CHUNK_SIZE))
-#define viewport_end_chunk_y CEIL_DIV(camera_position_y + (int32_t)framebuffer_size_y, (TILE_SIZE * CHUNK_SIZE))
+#define viewport_start_chunk_x FLOOR_DIV(camera_position_x, ((int32_t)TILE_SIZE * CHUNK_SIZE))
+#define viewport_end_chunk_x CEIL_DIV(camera_position_x + (int32_t)framebuffer_size_x, ((int32_t)TILE_SIZE * CHUNK_SIZE))
+#define viewport_start_chunk_y FLOOR_DIV(camera_position_y, ((int32_t)TILE_SIZE * CHUNK_SIZE))
+#define viewport_end_chunk_y CEIL_DIV(camera_position_y + (int32_t)framebuffer_size_y, ((int32_t)TILE_SIZE * CHUNK_SIZE))
 
 int resize_window();
-void update_size(struct mfb_window *window, int width, int height);
+void update_window_size(struct mfb_window *window, int width, int height);
 void draw_chunk(int32_t cx, int32_t cy);
+void update_tile_size();
 
 extern struct mfb_window *window;
 extern uint32_t *framebuffer;
