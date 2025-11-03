@@ -4,7 +4,11 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "MiniFB.h"
+
+#define KEY_COUNT (GLFW_KEY_LAST + 1)
+#define MOUSE_BUTTON_COUNT (GLFW_MOUSE_BUTTON_LAST + 1)
 
 // Special value indicating no chunk is assigned to this cell.
 // Must NOT be 0, since 0 is a valid chunk index!
@@ -40,7 +44,7 @@ void update_window_size(struct mfb_window *window, int width, int height);
 void draw_chunk(int32_t cx, int32_t cy);
 void update_tile_size();
 
-extern struct mfb_window *window;
+extern GLFWwindow *window;
 extern uint32_t *framebuffer;
 
 extern uint32_t framebuffer_size_x;
@@ -134,3 +138,14 @@ extern uint32_t entity_pool_size;
 extern uint32_t new_entity_pool_size;
 
 extern uint32_t player_index;
+
+// ------------
+
+extern int keyboard[];
+extern int mouse[];
+extern double cursor_x;
+extern double cursor_y;
+
+void keyboard_event_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void mouse_button_event_callback(GLFWwindow* window, int button, int action, int mods);
+void cursor_position_event_callback(GLFWwindow* window, double xpos, double ypos);

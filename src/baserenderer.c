@@ -1,6 +1,13 @@
 #include "game.h"
 
-struct mfb_window *window;
+GLFWwindow *window;
+
+const float screen_quad[] = {
+    -1.0f, -1.0f,
+     1.0f, -1.0f,
+    -1.0f,  1.0f,
+     1.0f,  1.0f
+};
 
 uint32_t framebuffer_size_x = 0;
 uint32_t framebuffer_size_y = 0;
@@ -81,7 +88,7 @@ uint32_t textures[256 * 256] =
   0x885437, 0xbb7d5b, 0x885437, 0xab6a47, 0x885437, 0xab6a47, 0x744730, 0xab6a47, 0xab6a47, 0xab6a47, 0x885437, 0xab6a47, 0xab6a47, 0x885437, 0xab6a47, 0xab6a47
 };
 
-// TODO: Optimize function for better cache friendliness.
+
 void draw_chunk(int32_t cx, int32_t cy) {
     uint32_t chunk_index = get_chunk_tiles(cx, cy);
     if (chunk_index == NULL_CHUNK) {
