@@ -8,7 +8,7 @@ int32_t *chunk_position_x = NULL;
 int32_t *chunk_position_y = NULL;
 
 uint32_t chunk_array_size = 0; // In chunks!
-uint32_t new_chunk_array_size = 0;
+uint32_t new_chunk_array_size = 16;
 
 int resize_chunk_array() {
     // Check if this function was called unnecessarily.
@@ -100,7 +100,7 @@ int load_nearby_chunks() {
                 // Temporary logic to delete a chunk without saving.
                 chunk_flags[i] = FREE;
                 set_chunk_tiles(chunk_position_x[i], chunk_position_y[i], NULL_CHUNK);
-                printf("Chunk on slot %d has been freed.\n", i);
+                printf("Chunk (%d, %d) on slot %d has been freed.\n", chunk_position_x[i], chunk_position_y[i], i);
             }
         }
     }

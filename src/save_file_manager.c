@@ -85,3 +85,31 @@ void initialize_blank_region_header() {
         region_header_template[i] = NULL_CHUNK;
     }
 }
+
+void* read_file_into_buffer(char* path) {
+    FILE *file = fopen(path, "rb");
+
+    if (file == NULL) {
+        return NULL;
+    }
+
+    // Find the end of the file
+    fseek(file, 0, SEEK_END);
+    uint64_t file_size = ftell(file);
+
+    // Allocate buffer
+    char* file_buffer = tracked_malloc(file_size + 1); // Ensure space exists for null termination.
+
+    if (file_buffer == NULL) {
+        fclose(file);
+        return NULL;
+    }
+
+    // Read file into buffer
+    fread(file_buffer, sizeof(char), file_size, file);
+    file_buffer[file_size] = 0;
+
+    fclose(file);
+
+    return file_buffer;
+}

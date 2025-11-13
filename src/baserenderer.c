@@ -9,12 +9,21 @@ const float screen_quad[] = {
      1.0f,  1.0f
 };
 
+const unsigned int quad_indices[] = {
+    0, 1, 2,  // first triangle
+    1, 3, 2   // second triangle
+};
+
+
 uint32_t framebuffer_size_x = 0;
 uint32_t framebuffer_size_y = 0;
 uint32_t next_framebuffer_size_x = 160;
 uint32_t next_framebuffer_size_y = 160;
 uint32_t actual_window_size_x = 0;
 uint32_t actual_window_size_y = 0;
+
+int32_t window_width, window_height;
+float aspect_ratio = 1.0;
 
 uint32_t *framebuffer = NULL;
 
@@ -37,7 +46,7 @@ void update_window_size(struct mfb_window *window, int width, int height) {
     next_framebuffer_size_y = height;
 }
 
-uint32_t TILE_SIZE_EXPONENT = 0;
+uint32_t TILE_SIZE_EXPONENT = 4;
 uint32_t TILE_SIZE = 0;
 uint32_t TILE_MASK = 0;
 
@@ -46,11 +55,11 @@ void update_tile_size() {
     TILE_MASK = TILE_SIZE - 1;
 }
 
-// In fixed point Q28:4
-int32_t camera_position_x = 0;
-int32_t camera_position_y = 0;
-// Integer format
-int32_t camera_position_z = 0;
+// In fixed point Q24:8
+float camera_position_x = 0.0;
+float camera_position_y = 0.0;
+
+float camera_zoom = 5.0;
 
 uint32_t textures[256 * 256] = 
 {
@@ -88,49 +97,101 @@ uint32_t textures[256 * 256] =
   0x885437, 0xbb7d5b, 0x885437, 0xab6a47, 0x885437, 0xab6a47, 0x744730, 0xab6a47, 0xab6a47, 0xab6a47, 0x885437, 0xab6a47, 0xab6a47, 0x885437, 0xab6a47, 0xab6a47
 };
 
-
-void draw_chunk(int32_t cx, int32_t cy) {
-    uint32_t chunk_index = get_chunk_tiles(cx, cy);
-    if (chunk_index == NULL_CHUNK) {
-        return;
+int initialize_window_context() {
+    if (!glfwInit()) {
+        printf("Failed to initialize GLFW\n");
+        return -1;
     }
-    uint16_t *chunk = &chunk_array[chunk_index * CHUNK_SIZE * CHUNK_SIZE];
 
-    // Convert chunk position to screen space
-    int32_t chunk_screen_x = cx * CHUNK_SIZE * TILE_SIZE - camera_position_x;
-    int32_t chunk_screen_y = cy * CHUNK_SIZE * TILE_SIZE - camera_position_y;
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    int32_t chunk_screen_x_end = chunk_screen_x + CHUNK_SIZE * TILE_SIZE;
-    int32_t chunk_screen_y_end = chunk_screen_y + CHUNK_SIZE * TILE_SIZE;
-
-    // Clamp drawing to screen
-    int32_t screen_start_x = MAX(chunk_screen_x, 0);
-    int32_t screen_start_y = MAX(chunk_screen_y, 0);
-    int32_t screen_end_x   = MIN(chunk_screen_x_end, (int32_t)framebuffer_size_x);
-    int32_t screen_end_y   = MIN(chunk_screen_y_end, (int32_t)framebuffer_size_y);
-
-    // Corresponding start in chunk pixel coordinates
-    int32_t chunk_start_px = screen_start_x - chunk_screen_x;
-    int32_t chunk_start_py = screen_start_y - chunk_screen_y;
-
-    // Copy pixels to the screen (with cropping optimization).
-    for (int32_t sy = screen_start_y, cpy = chunk_start_py; sy < screen_end_y; sy++, cpy++) {
-        for (int32_t sx = screen_start_x, cpx = chunk_start_px; sx < screen_end_x; sx++, cpx++) {
-
-            int32_t tile_x = cpx / TILE_SIZE;
-            int32_t tile_y = cpy / TILE_SIZE;
-
-            uint16_t tile_id = chunk[tile_y * CHUNK_SIZE + tile_x];
-
-            int32_t pixel_offset_x = cpx & TILE_MASK;
-            int32_t pixel_offset_y = cpy & TILE_MASK;
-
-            framebuffer[sx + sy * framebuffer_size_x] =
-                textures[
-                    tile_id * TILE_SIZE * TILE_SIZE +
-                    pixel_offset_y * TILE_SIZE +
-                    pixel_offset_x
-                ];
-        }
+    window = glfwCreateWindow(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT, WINDOW_NAME, NULL, NULL);
+    if (!window) {
+        printf("Failed to create GLFW window\n");
+        glfwTerminate();
+        return -1;
     }
+
+    glfwMakeContextCurrent(window);
+
+    glewExperimental = true;
+    if (glewInit() != GLEW_OK) {
+        glfwDestroyWindow(window);
+        glfwTerminate();
+        printf("Failed to initialize GLEW\n");
+        return -1;
+    }
+
+    return 0;
+}
+
+GLuint vertex_array_object, vertex_buffer_object, element_buffer_object;
+
+int setup_vertex_buffers() {
+
+    glGenVertexArrays(1, &vertex_array_object);
+    glGenBuffers(1, &vertex_buffer_object);
+    glGenBuffers(1, &element_buffer_object);
+
+    glBindVertexArray(vertex_array_object);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(screen_quad), screen_quad, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_object);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(quad_indices), quad_indices, GL_STATIC_DRAW);
+
+    return 0;
+}
+
+GLuint compile_shader(const char* source, GLenum type) {
+    GLuint shader = glCreateShader(type);
+    glShaderSource(shader, 1, (const char**)&source, NULL);
+
+    glCompileShader(shader);
+
+    GLint success;
+    char info_log[SHADER_COMPILATION_LOG_SIZE];
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+
+    if (!success) {
+        glGetShaderInfoLog(shader, SHADER_COMPILATION_LOG_SIZE, NULL, info_log);
+        printf("Error while compiling shader:\n%s\n", info_log);
+        glDeleteShader(shader);
+        return 0;
+    }
+
+    return shader;
+}
+
+GLuint link_shaders() {
+    
+    GLuint vertex_shader = compile_shader(vertex_src, GL_VERTEX_SHADER);
+    GLuint fragment_shader = compile_shader(fragment_src, GL_FRAGMENT_SHADER);
+
+    if (!vertex_shader || !fragment_shader) {
+        return 0;
+    }
+
+    GLuint program = glCreateProgram();
+    glAttachShader(program, vertex_shader);
+    glAttachShader(program, fragment_shader);
+    glLinkProgram(program);
+
+    GLint success;
+    char info_log[SHADER_COMPILATION_LOG_SIZE];
+    glGetProgramiv(program, GL_LINK_STATUS, &success);
+    if (!success) {
+        glGetProgramInfoLog(program, 512, NULL, info_log);
+        printf("Error while linking occurred:\n%s\n", info_log);
+        glDeleteProgram(program);
+        program = 0;
+    }
+
+    glDeleteShader(vertex_shader);
+    glDeleteShader(fragment_shader);
+
+    return program;
 }
