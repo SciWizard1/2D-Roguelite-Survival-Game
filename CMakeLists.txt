@@ -41,6 +41,7 @@ add_executable(game
     src/entities.c
     src/controls.c
     src/shaders_embedded.c
+    src/gpu_data_transfer.c
 )
 
 add_dependencies(game embed_shaders)

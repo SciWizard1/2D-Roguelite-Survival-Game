@@ -56,17 +56,11 @@ int generate_chunk(int32_t x, int32_t y) {
     uint16_t *chunk = &chunk_array[chunk_array_index * CHUNK_SIZE * CHUNK_SIZE];
 
     // Generate the chunk.
-    if (x == 1 && y == 1) {
-        for (uint16_t ty = 0; ty < CHUNK_SIZE; ty++) {
-            for (uint16_t tx = 0; tx < CHUNK_SIZE; tx++) {
-                chunk[ty * CHUNK_SIZE + tx] = ((tx - 128) * (tx - 128) + (ty - 128) * (ty - 128)) < 64 * 64;
-            }
-        }
-    } else {
-        for (uint16_t ty = 0; ty < CHUNK_SIZE; ty++) {
-            for (uint16_t tx = 0; tx < CHUNK_SIZE; tx++) {
-                chunk[ty * CHUNK_SIZE + tx] = ((tx == 0) || (ty == 0));
-            }
+    for (int32_t ly = 0; ly < CHUNK_SIZE; ly++) {
+        for (int32_t lx = 0; lx < CHUNK_SIZE; lx++) {
+            int32_t gx = x * CHUNK_SIZE + lx;
+            int32_t gy = y * CHUNK_SIZE + ly;
+            chunk[ly * CHUNK_SIZE + lx] = (lx + ly) % 2;
         }
     }
 
@@ -80,6 +74,7 @@ int generate_chunk(int32_t x, int32_t y) {
     resize_spatial_access_grid();
 
     set_chunk_tiles(x, y, chunk_array_index);
+    set_chunk_status(x, y, LOADED);
     chunk_position_x[chunk_array_index] = x;
     chunk_position_y[chunk_array_index] = y;
 
@@ -97,20 +92,20 @@ int load_nearby_chunks() {
                 viewport_start_chunk_x > chunk_position_x[i] || viewport_end_chunk_x < chunk_position_x[i] ||
                 viewport_start_chunk_y > chunk_position_y[i] || viewport_end_chunk_y < chunk_position_y[i]
             ) {
-                // Temporary logic to delete a chunk without saving.
+                // Temporary logic to free a chunk without saving.
                 chunk_flags[i] = FREE;
-                set_chunk_tiles(chunk_position_x[i], chunk_position_y[i], NULL_CHUNK);
+                set_chunk_status(chunk_position_x[i], chunk_position_y[i], NULL_CHUNK);
                 printf("Chunk (%d, %d) on slot %d has been freed.\n", chunk_position_x[i], chunk_position_y[i], i);
             }
         }
     }
 
     // Generate chunks. TODO: Implement chunk loading from the disk.
-    for (int32_t y = viewport_start_chunk_y; y < viewport_end_chunk_y; y++) {
-        for (int32_t x = viewport_start_chunk_x; x < viewport_end_chunk_x; x++) {
+    for (int32_t y = viewport_start_chunk_y; y <= viewport_end_chunk_y; y++) {
+        for (int32_t x = viewport_start_chunk_x; x <= viewport_end_chunk_x; x++) {
             // Ensure chunks aren't simply regenerated every frame.
-            uint32_t chunk_index = get_chunk_tiles(x, y);
-            if (chunk_index != NULL_CHUNK) {
+            chunk_status_enum chunk_status = get_chunk(x, y).chunk_status;
+            if (chunk_status == LOADED) {
                 continue;
             }
             
@@ -130,8 +125,9 @@ int load_nearby_chunks() {
 // ----------------------------------
 // This "spatial access grid" is a data structure used within this program that utilizes what is effectively a 3D lookup table to access a chunk
 // in world space. By accessing this grid, you recieve a 32-bit index to the chunk array that can be converted directly into a pointer to that chunk.
-uint32_t *tile_spatial_access_grid = NULL;
-uint32_t **nbt_spatial_access_grid = NULL;
+
+
+chunk_entry *spatial_access_grid = NULL;
 
 int32_t grid_x = 0, grid_y = 0; // These coords refer to the northern-western-top corner of the box in terms of world coordinates scaled to chunk units.
 int32_t grid_w = 0, grid_l = 0; // In chunks!
@@ -152,8 +148,7 @@ int resize_spatial_access_grid() {
     }
 
     // Allocate new memory for the new buffer.
-    uint32_t *new_tile_spatial_access_grid = tracked_malloc(new_grid_w * new_grid_l * sizeof(uint32_t));
-    uint32_t **new_nbt_spatial_access_grid = tracked_malloc(new_grid_w * new_grid_l * sizeof(uint32_t*));
+    chunk_entry *new_spatial_access_grid = tracked_malloc(new_grid_w * new_grid_l * sizeof(chunk_entry));
 
     // Ensure the allocated memory is rid of garbage values.
     for (int32_t y = 0; y < new_grid_l; y++) {
@@ -161,8 +156,7 @@ int resize_spatial_access_grid() {
             int32_t new_index = 
                 x + 
                 y * new_grid_w;
-            new_tile_spatial_access_grid[new_index] = NULL_CHUNK;
-            new_nbt_spatial_access_grid[new_index] = NULL;
+            new_spatial_access_grid[new_index] = (chunk_entry){0, NULL_CHUNK, NULL};
         }
     }
 
@@ -178,17 +172,14 @@ int resize_spatial_access_grid() {
                 x + 
                 y * grid_w;
 
-            new_tile_spatial_access_grid[new_index] = tile_spatial_access_grid[old_index];
-            new_nbt_spatial_access_grid[new_index] = nbt_spatial_access_grid[old_index];
+            new_spatial_access_grid[new_index] = spatial_access_grid[old_index];
         }
     }
 
-    tracked_free(tile_spatial_access_grid);
-    tracked_free(nbt_spatial_access_grid);
+    tracked_free(spatial_access_grid);
 
     // Transfer extra data describing the new buffer.
-    tile_spatial_access_grid = new_tile_spatial_access_grid;
-    nbt_spatial_access_grid = new_nbt_spatial_access_grid;
+    spatial_access_grid = new_spatial_access_grid;
 
     grid_x = new_grid_x; grid_y = new_grid_y;
     grid_w = new_grid_w; grid_l = new_grid_l;
@@ -196,26 +187,45 @@ int resize_spatial_access_grid() {
     return 0;
 }
 
-uint32_t get_chunk_tiles(int32_t x, int32_t y) {
-    if (x < grid_x || x >= grid_x + grid_w || y < grid_y || y >= grid_y + grid_l) {
-        return NULL_CHUNK;
+
+int32_t gpu_grid_x = 0, gpu_grid_y = 0;
+int32_t gpu_grid_w = 0, gpu_grid_l = 0;
+chunk_entry_padded *gpu_spatial_access_grid = NULL; // A small grid meant for sending to the GPU.
+
+void update_gpu_spatial_access_grid() {
+    int32_t new_gpu_grid_x = viewport_start_chunk_x;
+    int32_t new_gpu_grid_y = viewport_start_chunk_y;
+    int32_t new_gpu_grid_w = viewport_end_chunk_x - gpu_grid_x + 1;
+    int32_t new_gpu_grid_l = viewport_end_chunk_y - gpu_grid_y + 1;
+
+    int32_t new_gpu_grid_size = new_gpu_grid_w * new_gpu_grid_l;
+    int32_t old_gpu_grid_size = gpu_grid_w * gpu_grid_l;
+
+    if (old_gpu_grid_size != new_gpu_grid_size) {
+        gpu_spatial_access_grid = tracked_realloc(gpu_spatial_access_grid, new_gpu_grid_size * sizeof(chunk_entry_padded));
     }
 
-    int32_t index = tile_spatial_access_grid[(x - grid_x) + (y - grid_y) * grid_w];
+    for (int32_t y = 0; y < new_gpu_grid_l; y++) {
+        for (int32_t x = 0; x < new_gpu_grid_w; x++) {
+            chunk_entry unpadded_entry = get_chunk(new_gpu_grid_x + x, new_gpu_grid_y + y);
+            gpu_spatial_access_grid[y * new_gpu_grid_w + x].chunk_array_index = unpadded_entry.chunk_array_index;
+            gpu_spatial_access_grid[y * new_gpu_grid_w + x].chunk_status = unpadded_entry.chunk_status;
+            gpu_spatial_access_grid[y * new_gpu_grid_w + x].nbt_instance = unpadded_entry.nbt_instance;
+        }
+    }
 
-    // Return an index to the chunk object.
-    return index;
+    gpu_grid_x = new_gpu_grid_x;
+    gpu_grid_y = new_gpu_grid_y;
+    gpu_grid_w = new_gpu_grid_w;
+    gpu_grid_l = new_gpu_grid_l;
 }
 
-uint32_t* get_chunk_nbt(int32_t x, int32_t y) {
+chunk_entry get_chunk(int32_t x, int32_t y) {
     if (x < grid_x || x >= grid_x + grid_w || y < grid_y || y >= grid_y + grid_l) {
-        return NULL;
+        return (chunk_entry){0, NULL_CHUNK, NULL};
     }
 
-    uint32_t* index = nbt_spatial_access_grid[(x - grid_x) + (y - grid_y) * grid_w];
-
-    // Return a pointer to the nbt buffer.
-    return index;
+    return spatial_access_grid[(x - grid_x) + (y - grid_y) * grid_w];
 }
 
 void set_chunk_tiles(int32_t x, int32_t y, uint32_t index) {
@@ -225,24 +235,35 @@ void set_chunk_tiles(int32_t x, int32_t y, uint32_t index) {
     }
     int32_t flat_access_index = (x - grid_x) + (y - grid_y) * grid_w;
     
-    tile_spatial_access_grid[flat_access_index] = index;
+    spatial_access_grid[flat_access_index].chunk_array_index = index;
 }
 
-void set_chunk_nbt(int32_t x, int32_t y, uint32_t* index) {
+void set_chunk_nbt(int32_t x, int32_t y, uint32_t* nbt_instance) {
     if (x < grid_x || x >= grid_x + grid_w || y < grid_y || y >= grid_y + grid_l) {
         printf("Failed to set chunk (%d, %d)!\n", x, y);
         return;
     }
     int32_t flat_access_index = (x - grid_x) + (y - grid_y) * grid_w;
     
-    nbt_spatial_access_grid[flat_access_index] = index;
+    spatial_access_grid[flat_access_index].nbt_instance = nbt_instance;
 }
+
+void set_chunk_status(int32_t x, int32_t y, chunk_status_enum status) {
+    if (x < grid_x || x >= grid_x + grid_w || y < grid_y || y >= grid_y + grid_l) {
+        printf("Failed to set chunk (%d, %d)!\n", x, y);
+        return;
+    }
+    int32_t flat_access_index = (x - grid_x) + (y - grid_y) * grid_w;
+    
+    spatial_access_grid[flat_access_index].chunk_status = status;
+}
+
 
 int set_tile(int32_t x, int32_t y, uint16_t tile_id) {
     int32_t cx = FLOOR_DIV(x, CHUNK_SIZE);
     int32_t cy = FLOOR_DIV(y, CHUNK_SIZE);
 
-    uint32_t chunk_index = get_chunk_tiles(cx, cy);
+    uint32_t chunk_index = get_chunk(cx, cy).chunk_array_index;
     
 
     if (chunk_index == NULL_CHUNK) {

@@ -72,6 +72,8 @@ void* tracked_malloc(uint32_t size) {
     buffer_sizes[pointer_stack_top]  = size;
     pointer_stack_top++;
 
+    memset((char*)pointer, 0, size);
+
     return pointer;
 }
 

@@ -1,5 +1,7 @@
 #include "game.h"
 
+GLuint shader_program;
+
 int main() {
 
     if (initialize_window_context() != 0) {
@@ -16,7 +18,7 @@ int main() {
     glBindVertexArray(0);
 
     // Setup shaders
-    GLuint shader_program = link_shaders();
+    shader_program = link_shaders();
     if (!shader_program) {
         printf("Failed to create shader program.\n");
         glfwDestroyWindow(window);
@@ -26,6 +28,7 @@ int main() {
 
     //glfwSwapInterval(1);
 
+    glUseProgram(shader_program);
 
     // Setup controls
     glfwSetKeyCallback(window, keyboard_event_callback);
@@ -37,6 +40,12 @@ int main() {
     int uniform_camera_position_y = glGetUniformLocation(shader_program, "camera_position_y");
     int uniform_camera_zoom       = glGetUniformLocation(shader_program, "camera_zoom");
     int uniform_aspect_ratio      = glGetUniformLocation(shader_program, "aspect_ratio");
+    int uniform_chunk_array_size  = glGetUniformLocation(shader_program, "chunk_array_size");
+
+    int uniform_spatial_access_grid_x = glGetUniformLocation(shader_program, "spatial_access_grid_x");
+    int uniform_spatial_access_grid_y = glGetUniformLocation(shader_program, "spatial_access_grid_y");
+    int uniform_spatial_access_grid_w = glGetUniformLocation(shader_program, "spatial_access_grid_w");
+    int uniform_spatial_access_grid_l = glGetUniformLocation(shader_program, "spatial_access_grid_l");
 
     // Initialize memory regions.
     initialize_blank_region_header();
@@ -46,28 +55,44 @@ int main() {
     resize_chunk_array();
     resize_entity_array();
 
+    // Update tile size with default value.
     update_tile_size();
 
+    // Initialize player position.
     entity_pos_x[player_index] = 0;
     entity_pos_y[player_index] = 0;
 
-
     // Initialize GPU buffers for transferring larger data.
+    // Initialize tile data buffers.
 
-    GLuint chunk_array_shader_storage_buffer_object;
-    glGenBuffers(1, &chunk_array_shader_storage_buffer_object);
-    glBindBuffer(GL_SHADER_STORAGE_BUFFER, chunk_array_shader_storage_buffer_object);
+    texture_instance chunk_array_texture_uniform = generate_storage_texture_array("chunk_array", CHUNK_SIZE, CHUNK_SIZE, chunk_array_size);
+    texture_instance tile_texture_array_uniform  = generate_graphics_texture_array("tile_textures", TILE_SIZE, TILE_SIZE, num_textures);
 
-    GLsizeiptr chunk_array_shader_buffer_size = chunk_array_size * CHUNK_TEXTURE_BYTES;
+    // Initialize chunk lookup buffers.
+    GLuint gpu_spatial_access_grid_uniform_buffer;
+    glGenBuffers(1, &gpu_spatial_access_grid_uniform_buffer);
+    glBindBuffer(GL_UNIFORM_BUFFER, gpu_spatial_access_grid_uniform_buffer);
 
-    glBufferStorage(GL_SHADER_STORAGE_BUFFER, chunk_array_shader_buffer_size, NULL, 
-        GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT
-    );
+    GLsizeiptr gpu_spatial_access_grid_max_size = 1024;
+    glBufferData(GL_UNIFORM_BUFFER, gpu_spatial_access_grid_max_size, NULL, GL_DYNAMIC_DRAW);
+    glBindBufferBase(GL_UNIFORM_BUFFER, 0, gpu_spatial_access_grid_uniform_buffer);
 
-    void* chunk_array_shader_buffer_pointer = glMapBufferRange(GL_SHADER_STORAGE_BUFFER, 0, chunk_array_shader_buffer_size,
-        GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT
-    );
+    for (uint32_t i = 0; i < num_textures; i++) {
+        glActiveTexture(GL_TEXTURE0 + tile_texture_array_uniform.binding_index);
+        glBindTexture(GL_TEXTURE_2D_ARRAY, tile_texture_array_uniform.descriptor);
 
+        glTexSubImage3D(
+            GL_TEXTURE_2D_ARRAY,
+            0,
+            0, 0, i,
+            TILE_SIZE,
+            TILE_SIZE,
+            1,
+            GL_RGBA,
+            GL_UNSIGNED_INT_8_8_8_8_REV,
+            &textures[i * TILE_SIZE * TILE_SIZE]
+        );
+    }
 
     // Main loop:
     while (!glfwWindowShouldClose(window)) {
@@ -83,16 +108,15 @@ int main() {
         //    return -1;
         //}
 
-        // Load chunks.
-        load_nearby_chunks();
-        
+        //printf("Viewport: (%d, %d) to (%d, %d)\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
+
         // Basic movement controls
         entity_pos_x[player_index] -= 0.1 * keyboard[GLFW_KEY_A];
         entity_pos_x[player_index] += 0.1 * keyboard[GLFW_KEY_D];
         entity_pos_y[player_index] += 0.1 * keyboard[GLFW_KEY_W];
         entity_pos_y[player_index] -= 0.1 * keyboard[GLFW_KEY_S];
 
-        printf("Player is at (%f, %f)\r", entity_pos_x[player_index], entity_pos_y[player_index]);
+        //printf("Player is at (%f, %f)\r", entity_pos_x[player_index], entity_pos_y[player_index]);
 
         // Move the camera towards the player.
         camera_position_x = camera_position_x + (entity_pos_x[player_index] - camera_position_x) * 0.1;
@@ -109,29 +133,47 @@ int main() {
         //    int32_t mouse_tile_y = FLOOR_DIV(((mouse_y * (int32_t)framebuffer_size_y) / (int32_t)actual_window_size_y + camera_position_y), (int32_t)TILE_SIZE);
         //    set_tile(mouse_tile_x, mouse_tile_y, 1);
         //}
-
         
         //glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         //glClear(GL_COLOR_BUFFER_BIT);
 
-        // Copy data to large GPU buffers.
 
-        memcpy(
-            (uint8_t*)chunk_array_shader_buffer_pointer, 
-            chunk_array, CHUNK_TEXTURE_BYTES
-        );
+        update_viewport();
 
-        glBindBufferRange(GL_SHADER_STORAGE_BUFFER, 0, 
-            chunk_array_shader_storage_buffer_object, 
-            0, 
-            chunk_array_shader_buffer_size
-        );
+        // Load chunks.
+        load_nearby_chunks();
+        update_gpu_spatial_access_grid();
 
         // Set uniforms
         glUniform1f(uniform_camera_position_x, camera_position_x);
         glUniform1f(uniform_camera_position_y, camera_position_y);
         glUniform1f(uniform_camera_zoom,       camera_zoom);
         glUniform1f(uniform_aspect_ratio,      aspect_ratio);
+
+        glUniform1ui(uniform_chunk_array_size,  chunk_array_size);
+        glUniform1i(uniform_spatial_access_grid_x, gpu_grid_x);
+        glUniform1i(uniform_spatial_access_grid_y, gpu_grid_y);
+        glUniform1i(uniform_spatial_access_grid_w, gpu_grid_w);
+        glUniform1i(uniform_spatial_access_grid_l, gpu_grid_l);
+
+        for (uint32_t i = 0; i < chunk_array_size; i++) {
+            update_chunk_texture(chunk_array_texture_uniform, i);
+        }
+
+        // Upload chunk lookup table
+
+        int32_t size_of_gpu_spatial_access_grid = gpu_grid_w * gpu_grid_l * sizeof(chunk_entry_padded);
+        glBindBuffer(GL_UNIFORM_BUFFER, gpu_spatial_access_grid_uniform_buffer);
+
+        void* ptr = glMapBufferRange(
+            GL_UNIFORM_BUFFER,
+            0,
+            size_of_gpu_spatial_access_grid,
+            GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT
+        );
+
+        memcpy(ptr, gpu_spatial_access_grid, size_of_gpu_spatial_access_grid);
+        glUnmapBuffer(GL_UNIFORM_BUFFER);
 
         // Run shader.
         glUseProgram(shader_program);
@@ -152,14 +194,13 @@ int main() {
     tracked_free(chunk_flags);
     tracked_free(chunk_position_x);
     tracked_free(chunk_position_y);
-    tracked_free(tile_spatial_access_grid);
-    tracked_free(nbt_spatial_access_grid);
+    tracked_free(spatial_access_grid);
     tracked_free(entity_ids);
     tracked_free(entity_pos_x);
     tracked_free(entity_pos_y);
+    tracked_free(gpu_spatial_access_grid);
 
     glUnmapBuffer(GL_SHADER_STORAGE_BUFFER);
-    glDeleteBuffers(1, &chunk_array_shader_storage_buffer_object);
 
     glDeleteVertexArrays(1, &vertex_array_object);
     glDeleteBuffers(1, &vertex_buffer_object);
