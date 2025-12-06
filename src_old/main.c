@@ -94,6 +94,11 @@ int main() {
         );
     }
 
+
+    double TARGET_FPS = 240.0;
+    double FRAME_TIME_LIMIT = 1.0 / TARGET_FPS;
+    double last_frame_time = 0.0;
+
     // Main loop:
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
@@ -101,28 +106,12 @@ int main() {
         glfwGetWindowSize(window, &window_width, &window_height);
         aspect_ratio = (float)window_width / (float)window_height;
 
-        // Ensure the window is of the correct size.
-        //error_code = resize_window();
-        //if (error_code < 0) {
-        //    printf("Failed to resize the window.\n");
-        //    return -1;
-        //}
-
-        //printf("Viewport: (%d, %d) to (%d, %d)\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
-
-        // Basic movement controls
-        entity_pos_x[player_index] -= 0.1 * keyboard[GLFW_KEY_A];
-        entity_pos_x[player_index] += 0.1 * keyboard[GLFW_KEY_D];
-        entity_pos_y[player_index] += 0.1 * keyboard[GLFW_KEY_W];
-        entity_pos_y[player_index] -= 0.1 * keyboard[GLFW_KEY_S];
-
-        //printf("Player is at (%f, %f)\r", entity_pos_x[player_index], entity_pos_y[player_index]);
-
-        // Move the camera towards the player.
-        camera_position_x = camera_position_x + (entity_pos_x[player_index] - camera_position_x) * 0.1;
-        camera_position_y = camera_position_y + (entity_pos_y[player_index] - camera_position_y) * 0.1;
+        // FPS calculations
+        double current_time = glfwGetTime();
+        double delta_time = current_time - last_frame_time;
         
-        //printf("Chunk viewport (%d, %d), (%d, %d).\n", viewport_start_chunk_x, viewport_start_chunk_y, viewport_end_chunk_x, viewport_end_chunk_y);
+        //camera_position_x = entity_pos_x[player_index];
+        //camera_position_y = entity_pos_y[player_index];
 
         // Basic world modification logic
         //if (mouse[MOUSE_LEFT]) {
@@ -137,55 +126,73 @@ int main() {
         //glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         //glClear(GL_COLOR_BUFFER_BIT);
 
-
         update_viewport();
 
         // Load chunks.
         load_nearby_chunks();
-        update_gpu_spatial_access_grid();
 
-        // Set uniforms
-        glUniform1f(uniform_camera_position_x, camera_position_x);
-        glUniform1f(uniform_camera_position_y, camera_position_y);
-        glUniform1f(uniform_camera_zoom,       camera_zoom);
-        glUniform1f(uniform_aspect_ratio,      aspect_ratio);
 
-        glUniform1ui(uniform_chunk_array_size,  chunk_array_size);
-        glUniform1i(uniform_spatial_access_grid_x, gpu_grid_x);
-        glUniform1i(uniform_spatial_access_grid_y, gpu_grid_y);
-        glUniform1i(uniform_spatial_access_grid_w, gpu_grid_w);
-        glUniform1i(uniform_spatial_access_grid_l, gpu_grid_l);
+        if (delta_time >= FRAME_TIME_LIMIT) {
 
-        for (uint32_t i = 0; i < chunk_array_size; i++) {
-            update_chunk_texture(chunk_array_texture_uniform, i);
+            // Basic movement controls
+            entity_pos_x[player_index] -= 0.5 * keyboard[GLFW_KEY_A];
+            entity_pos_x[player_index] += 0.5 * keyboard[GLFW_KEY_D];
+            entity_pos_y[player_index] += 0.5 * keyboard[GLFW_KEY_W];
+            entity_pos_y[player_index] -= 0.5 * keyboard[GLFW_KEY_S];
+
+            // Move the camera towards the player.
+            camera_position_x = camera_position_x + (entity_pos_x[player_index] - camera_position_x) * 0.1;
+            camera_position_y = camera_position_y + (entity_pos_y[player_index] - camera_position_y) * 0.1;
+
+            update_gpu_spatial_access_grid();
+
+            // Set uniforms
+            glUniform1f(uniform_camera_position_x, camera_position_x);
+            glUniform1f(uniform_camera_position_y, camera_position_y);
+            glUniform1f(uniform_camera_zoom,       camera_zoom);
+            glUniform1f(uniform_aspect_ratio,      aspect_ratio);
+
+            glUniform1ui(uniform_chunk_array_size,  chunk_array_size);
+
+            glUniform1i(uniform_spatial_access_grid_x, gpu_grid_x);
+            glUniform1i(uniform_spatial_access_grid_y, gpu_grid_y);
+            glUniform1i(uniform_spatial_access_grid_w, gpu_grid_w);
+            glUniform1i(uniform_spatial_access_grid_l, gpu_grid_l);
+
+            for (uint32_t i = 0; i < chunk_array_size; i++) {
+                update_chunk_texture(chunk_array_texture_uniform, i);
+            }
+
+            // Upload chunk lookup table
+
+            int32_t size_of_gpu_spatial_access_grid = gpu_grid_w * gpu_grid_l * sizeof(chunk_entry_padded);
+            glBindBuffer(GL_UNIFORM_BUFFER, gpu_spatial_access_grid_uniform_buffer);
+
+            void* ptr = glMapBufferRange(
+                GL_UNIFORM_BUFFER,
+                0,
+                size_of_gpu_spatial_access_grid,
+                GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT
+            );
+
+            memcpy(ptr, gpu_spatial_access_grid, size_of_gpu_spatial_access_grid);
+            glUnmapBuffer(GL_UNIFORM_BUFFER);
+
+            // Run shader.
+            glUseProgram(shader_program);
+            glBindVertexArray(vertex_array_object);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+            glBindVertexArray(0);
+
+
+            //glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
+            //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            glfwSwapBuffers(window);
+            last_frame_time = current_time;
+
+            printf("FPS: %lf\n", 1/delta_time);
         }
-
-        // Upload chunk lookup table
-
-        int32_t size_of_gpu_spatial_access_grid = gpu_grid_w * gpu_grid_l * sizeof(chunk_entry_padded);
-        glBindBuffer(GL_UNIFORM_BUFFER, gpu_spatial_access_grid_uniform_buffer);
-
-        void* ptr = glMapBufferRange(
-            GL_UNIFORM_BUFFER,
-            0,
-            size_of_gpu_spatial_access_grid,
-            GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT
-        );
-
-        memcpy(ptr, gpu_spatial_access_grid, size_of_gpu_spatial_access_grid);
-        glUnmapBuffer(GL_UNIFORM_BUFFER);
-
-        // Run shader.
-        glUseProgram(shader_program);
-        glBindVertexArray(vertex_array_object);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        glBindVertexArray(0);
-
-
-        //glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
-        //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        glfwSwapBuffers(window);
     };
 
     // Free all allocated buffers.

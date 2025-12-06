@@ -60,7 +60,7 @@ int generate_chunk(int32_t x, int32_t y) {
         for (int32_t lx = 0; lx < CHUNK_SIZE; lx++) {
             int32_t gx = x * CHUNK_SIZE + lx;
             int32_t gy = y * CHUNK_SIZE + ly;
-            chunk[ly * CHUNK_SIZE + lx] = (lx + ly) % 2;
+            chunk[ly * CHUNK_SIZE + lx] = (gy == 0) + 2 * (gy > 0);
         }
     }
 
