@@ -5,9 +5,9 @@
 struct ErrInstance {
     int32_t     code;
     int32_t     quantity;
-    char*       msg;
+    const char* msg;
     int32_t     line;
-    char*       file;
+    const char* file;
     ErrSeverity severity;
 };
 
@@ -46,9 +46,13 @@ int err_reallocate_instance_array() {
     return 0;
 }
 
-int err_raw(int32_t code, char* msg, int32_t line, char* file, ErrSeverity severity) {
+void err_free_instance_array() {
+    free(err_instances);
+}
+
+int err_raw(int32_t code, const char* msg, int32_t line, const char* file, ErrSeverity severity) {
     // Instantiate an error object.
-    ErrInstance err_instance = {
+    ErrInstance err_instance = (ErrInstance){
         code,
         1,
         msg,
@@ -65,8 +69,10 @@ int err_raw(int32_t code, char* msg, int32_t line, char* file, ErrSeverity sever
 
     // The resize must occur, otherwise memory will be written out of bounds.
     if (realloc_error_code < 0) {
-        fprintf(stderr, "Failed to instantiate error.\n");
         return -1;
+        
+        // Failure to reallocate error instance array is fatal.
+        exit(-1);
     }
 
     // Set instance data.
@@ -79,7 +85,7 @@ int err_raw(int32_t code, char* msg, int32_t line, char* file, ErrSeverity sever
 
     // TODO: Add file logging output.
 
-    return 0;
+    return code;
 }
 
 int32_t err_get_instance_index_by_code(int32_t code) {
@@ -89,15 +95,13 @@ int32_t err_get_instance_index_by_code(int32_t code) {
             if (err_instances[i].code == code) {
                 return i;
             }
-
-            printf("Could not find instance at index %d.\n", i);
         }
 
         // Failed to find instance.
         return -1; 
 
     } else {
-        // Use a hashmap for speed if its available.
+        // Use a hashmap for speed if it's available.
         // TODO: Write a hashmap module.
 
         return -1;

@@ -34,7 +34,6 @@ include_directories(glfw/include)
 add_compile_options(-Wall -Wextra -Wpedantic -O3)
 
 if (${SOURCE} STREQUAL "src_old")
-
 add_executable(game 
     ${SOURCE}/main.c 
     ${SOURCE}/chunks.c 
@@ -47,17 +46,15 @@ add_executable(game
     ${SOURCE}/shaders_embedded.c
     ${SOURCE}/gpu_data_transfer.c
 )
-
 endif()
 
 if (${SOURCE} STREQUAL "src_new")
-
 add_executable(game
     ${SOURCE}/main.c
     ${SOURCE}/shaders_embedded.c
     ${SOURCE}/error.c
+    ${SOURCE}/hashmap.c
 )
-
 endif()
 
 

@@ -1,0 +1,20 @@
+
+Numerical Length Standards:
+
+    Lines may not be more than 100 characters long.
+    Functions may not span more than 60 lines.
+
+Numerical Control Flow Standards:
+
+    Nesting depth must be at most 4.
+
+Naming Conventions:
+
+    Variable names, functions, and struct members must use snake_case.
+    Struct definitions and their typedefs must use PascalCase.
+    Constants and macros must use ALL_CAPS.
+
+Documentation Standards:
+
+    All code must be commented thoroughly.
+    Comments must document what the code does for the system- not obvious behavior.
